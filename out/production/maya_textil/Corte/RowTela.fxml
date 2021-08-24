@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="495.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Corte.RowTela">
+    <children>
+      <VBox prefHeight="70.0" prefWidth="469.0">
+         <children>
+            <HBox prefHeight="37.0" prefWidth="495.0">
+               <children>
+                      <Label id="tituloItem" prefHeight="18.0" prefWidth="44.0" />
+                      <Label id="tituloItem" prefHeight="17.0" prefWidth="84.0" text="codigo tela" />
+                      <Label id="tituloItem" prefHeight="18.0" prefWidth="154.0" text="tipo de tela" />
+                      <Label id="tituloItem" prefHeight="18.0" prefWidth="86.0" text="Color" />
+                      <Label id="tituloItem" prefHeight="17.0" prefWidth="73.0" text="Cantidad" />
+      
+                     </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="495.0">
+               <children>
+                  <Label id="tituloItem" fx:id="idrollo" prefHeight="18.0" prefWidth="44.0" text="Codigo Corte:" />
+                  <Label fx:id="codigotela" prefHeight="17.0" prefWidth="84.0" text="Label" />
+                  <Label fx:id="tipo" prefHeight="18.0" prefWidth="154.0" text="Fecha:" />
+                  <Label fx:id="colores" prefHeight="18.0" prefWidth="86.0" text="Cantidad:" />
+                  <Label fx:id="cantidad" prefHeight="17.0" prefWidth="73.0" text="Label" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="70.0" prefWidth="99.0">
+         <children>
+            <Label id="btnOpcion" fx:id="btnEliminar" alignment="CENTER" text="Eliminar" />
+         </children>
+      </VBox>
+    </children>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</HBox>

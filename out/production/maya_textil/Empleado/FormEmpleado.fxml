@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="679.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Empleado.FormEmpleado">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="39.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="472.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="39.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="650.0" minHeight="10.0" prefHeight="380.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="146.0" minHeight="0.0" prefHeight="74.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="70.0" minHeight="7.0" prefHeight="45.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="168.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="422.0" minWidth="10.0" prefWidth="236.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="68.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="72.0" minHeight="8.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="16.0" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="18.0" prefWidth="166.0" text="Codigo:" visible="false" GridPane.valignment="CENTER" />
+                <TextField fx:id="txtCodigo" visible="false" GridPane.columnIndex="1" />
+                <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtDpi" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label prefHeight="18.0" prefWidth="180.0" text="Nombre:" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Label prefHeight="18.0" prefWidth="169.0" text="Apellido:" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                <Label prefHeight="18.0" prefWidth="166.0" text="Telefono:" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                <Label prefHeight="17.0" prefWidth="178.0" text="DPI:" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <children>
+                        <CheckBox fx:id="Activo" mnemonicParsing="false" onAction="#estadoActivo" selected="true" text="Activo" />
+                        <CheckBox fx:id="Noactivo" mnemonicParsing="false" onAction="#estadoNoActivo" text="No activo" />
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+        <Button id="btnPrimario" fx:id="btnIngresarEmpleado" mnemonicParsing="false" onAction="#registrarEmpleado" prefHeight="30.0" prefWidth="291.0" text="Ingresar Empleado" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+        <Label fx:id="labelTitulo" alignment="CENTER" prefHeight="18.0" prefWidth="473.0" text="Ingresar Nuevo Empleado" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+    </children>
+</GridPane>

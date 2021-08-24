@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="menu" prefHeight="812.0" prefWidth="1529.0" stylesheets="/css/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu.MenuController">
+    <children>
+        <Pane id="menu2" prefHeight="812.0" prefWidth="1529.0">
+            <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+                <Button id="btnTrasera" fx:id="btnOperacion" layoutX="55.0" layoutY="535.0" mnemonicParsing="false" onAction="#AbrirOperacion" prefHeight="127.0" prefWidth="127.0" />
+                <Button id="btnPago" fx:id="btnPago" layoutX="239.0" layoutY="535.0" mnemonicParsing="false" onAction="#AbrirPago" prefHeight="127.0" prefWidth="127.0" />
+                <Button id="btnUsuario" fx:id="btnUsuario" layoutX="52.0" layoutY="14.0" mnemonicParsing="false" onAction="#CrearUsuario" prefHeight="46.0" prefWidth="160.0" text="Crear Usuario" />
+                <Button id="btnCorte" fx:id="btnCorte" layoutX="54.0" layoutY="76.0" mnemonicParsing="false" onAction="#AbrirCorte" prefHeight="127.0" prefWidth="127.0" />
+                <Button id="btnInforme" fx:id="btnInforme" layoutX="424.0" layoutY="535.0" mnemonicParsing="false" onAction="#AbrirInforme" prefHeight="127.0" prefWidth="127.0" />
+                <Button id="btnBodega" fx:id="btnBodega" layoutX="54.0" layoutY="227.0" mnemonicParsing="false" onAction="#AbrirBodega" prefHeight="127.0" prefWidth="127.0" />
+                <Button id="btnTrabajador" fx:id="btnEmpleado" layoutX="54.0" layoutY="382.0" mnemonicParsing="false" onAction="#AbrirEmpleado" prefHeight="127.0" prefWidth="127.0" />
+                <Label layoutX="52.0" layoutY="662.0" prefHeight="23.0" prefWidth="160.0" text="Control de Operaciones" />
+                <Label alignment="CENTER" layoutX="239.0" layoutY="662.0" prefHeight="17.0" prefWidth="127.0" text="Pago" />
+                <Label alignment="CENTER" layoutX="453.0" layoutY="662.0" prefHeight="17.0" prefWidth="69.0" text="Informe" />
+                <Label alignment="CENTER" layoutX="54.0" layoutY="509.0" prefHeight="17.0" prefWidth="127.0" text="Empleado" />
+                <Label alignment="CENTER" layoutX="55.0" layoutY="354.0" prefHeight="17.0" prefWidth="127.0" text="Bodega" />
+                <Label alignment="CENTER" layoutX="54.0" layoutY="203.0" prefHeight="17.0" prefWidth="127.0" text="Corte" />
+                <ImageView fx:id="logoimg" fitHeight="378.0" fitWidth="521.0" layoutX="451.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
+            </children></Pane>
+    </children>
+</AnchorPane>

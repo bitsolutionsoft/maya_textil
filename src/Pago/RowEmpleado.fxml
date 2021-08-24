@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="381.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.RowEmpleado">
+    <children>
+        <VBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="0.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" fx:id="lblcodigo" text="Codigo" />
+                <Label id="descripcionItem" fx:id="codigo" text="Label" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="321.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="67.0" text="Nombre" />
+                <Label id="descripcionItem" fx:id="nombre" prefHeight="18.0" prefWidth="338.0" text="Label" />
+            </children></VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="40.0" spacing="5.0">
+            <children>
+                <Label id="descripcionItem" fx:id="telefono" prefHeight="18.0" prefWidth="47.0" text="Label" />
+                <Label id="descripcionItem" fx:id="dpi" text="Label" />
+            </children></VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="26.0" spacing="15.0">
+            <children>
+                <Label id="descripcionItem" fx:id="estado" text="Label" />
+            </children></VBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="0.0" spacing="15.0">
+            <children>
+                <Button fx:id="btnEliminar" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+                <Button fx:id="btnEditar" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</HBox>

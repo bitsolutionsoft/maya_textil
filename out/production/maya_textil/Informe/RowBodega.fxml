@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="857.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Informe.RowBodega">
+    <children>
+        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="45.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" fx:id="lblIdBodega" text="Codigo" />
+                <Label id="descripcionItem" fx:id="codigo" text="Label" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="105.0" prefWidth="271.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="67.0" text="Codigo de tela" />
+                <Label id="descripcionItem" fx:id="codigo_tela" prefHeight="18.0" prefWidth="338.0" text="Label" />
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="68.0" text="Tipo de tela" />
+                <Label id="descripcionItem" fx:id="tipo" text="Label" />
+            </children></VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="200.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="78.0" text="Color" />
+                <Label id="descripcionItem" fx:id="color" text="Label" />
+                <Label id="tituloItem" text="Cantidad" />
+                <Label id="descripcionItem" fx:id="cantidad" text="Label" />
+            </children></VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="105.0" prefWidth="162.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" text="Precio" />
+                <Label id="descripcionItem" fx:id="precio" text="Label" />
+                <Label id="tituloItem" text="Total" />
+                <Label id="descripcionItem" fx:id="total" text="Label" />
+            </children></VBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="105.0" prefWidth="128.0" spacing="15.0">
+            <children>
+                <Button fx:id="btnEliminar" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" visible="false" />
+                <Button fx:id="btnEditar" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" visible="false" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</HBox>

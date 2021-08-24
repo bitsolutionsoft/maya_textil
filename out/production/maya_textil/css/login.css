@@ -1,0 +1,64 @@
+#Login{
+
+-fx-background-color: linear-gradient(to bottom,#92FFC0,#0396FF);
+
+
+-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+#Login2{
+-fx-background-color: linear-gradient(to bottom,#32CCBC,#28C76F);
+-fx-border-width: 15;
+    -fx-background-radius: 0;
+
+
+
+}
+
+#imguser{
+-fx-background-image: url("/Img/user.png");
+/*-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);*/
+}
+
+#imgpass{
+-fx-background-image: url("/Img/pass.png");
+/*-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);*/
+}
+.text-field{
+
+     -fx-background-insets: 2;
+     -fx-background-color: "#77dd77";
+     -fx-border-color: #edebe9;
+    -fx-border-width: 1.5px;
+     -fx-font-size: 14px;
+    -fx-border-radius: 8px;
+    -fx-font-weight:bold;
+ }
+ .text-field: focused{
+     -fx-background-insets: 2;
+     -fx-background-color: d8f8e1;
+     -fx-border-color: "#9EFDCA";
+ -fx-border-width: 1.5px;
+-fx-font-size: 14px;
+ }
+
+#btnIngresar{
+-fx-background-color:"#5DC460";
+-fx-background-radius: 10px;
+-fx-text-fill:white;
+-fx-font-size: 14px;
+-fx-font-weight:bold;
+}
+#btnSalir{
+-fx-background-color:"#5DC46000";
+
+-fx-text-fill:#282C8C;
+-fx-font-size: 14px;
+-fx-font-weight:bold;
+}
+.label{
+
+-fx-text-fill: "#282C8C";
+-fx-font-size: 16px;
+-fx-font-weight:bold;
+}

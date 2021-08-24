@@ -1,0 +1,84 @@
+#menu2{
+-fx-background-image: url("/Img/menu.png");
+
+
+/*-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);*/
+}
+#Login{
+-fx-background-image: url("/Img/menu.jpg");
+-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+
+#btnDelantera{
+-fx-background-image: url("/Img/delantera.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnTrasera{
+-fx-background-image: url("/Img/trasera.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnEnsamble{
+-fx-background-image: url("/Img/trasera.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnPago{
+-fx-background-image: url("/Img/pagar.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnBodega{
+-fx-background-image: url("/Img/bodega.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnCorte{
+-fx-background-image: url("/Img/corte.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+
+#btnInforme{
+-fx-background-image: url("/Img/informe.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnTrabajador{
+-fx-background-image: url("/Img/trabajador.png");
+-fx-background-radius: 75px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+#btnUsuario{
+-fx-background-color:"#5DC460";
+-fx-background-radius: 10px;
+-fx-text-fill:white;
+-fx-font-size: 18px;
+-fx-font-weight:bold;
+}
+.button:hover {
+-fx-background-color: "#282C8C";
+}
+.label{
+-fx-text-fill: "#282C8C";
+-fx-font-size: 14px;
+-fx-font-weight:bold;
+}

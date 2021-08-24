@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="fondo" fx:id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="679.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Bodega.FormBodega">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="39.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="472.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="39.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="650.0" minHeight="10.0" prefHeight="380.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="146.0" minHeight="0.0" prefHeight="74.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="70.0" minHeight="7.0" prefHeight="45.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="168.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="422.0" minWidth="10.0" prefWidth="236.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="68.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="72.0" minHeight="8.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="16.0" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="18.0" prefWidth="135.0" text="Fecha:" GridPane.valignment="CENTER" />
+                <TextField fx:id="txtCodigoTela" GridPane.columnIndex="1" />
+                <TextField fx:id="txtTipo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtColor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtPrecio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="txtCantidad" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label prefHeight="18.0" prefWidth="111.0" text="Tipo de tela" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Label prefHeight="18.0" prefWidth="61.0" text="Color:" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                <Label prefHeight="18.0" prefWidth="100.0" text="Cantidad:" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                <Label text="Precio:" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <Label text="Total" GridPane.rowIndex="5" />
+            <TextField fx:id="txtTotal" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblIdBodega" GridPane.rowIndex="6" />
+            </children>
+        </GridPane>
+        <Button id="btnPrimario" fx:id="btnIngresarTela" mnemonicParsing="false" onAction="#registrarDatos" prefHeight="30.0" prefWidth="291.0" text="Ingresar " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+        <Label fx:id="labelTitulo" prefHeight="18.0" prefWidth="165.0" text="Ingresar nuevo Registro" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+    </children>
+</GridPane>

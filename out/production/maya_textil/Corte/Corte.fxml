@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="fondo" prefHeight="555.0" prefWidth="917.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Corte.CorteController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="150.0" minHeight="0.0" prefHeight="22.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="646.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="646.0" minHeight="10.0" prefHeight="499.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="635.0" minHeight="0.0" prefHeight="9.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <GridPane hgap="15.0" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="493.0" minHeight="10.0" prefHeight="441.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+              <ListView id="listView" fx:id="listCorte" prefHeight="544.0" prefWidth="600.0" GridPane.rowIndex="1" />
+            <ListView fx:id="listViewTela" prefHeight="480.0" prefWidth="434.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane hgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="720.0" minWidth="10.0" prefWidth="270.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="460.0" minWidth="10.0" prefWidth="189.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <TextField fx:id="txtBuscar" prefHeight="37.0" prefWidth="365.0" promptText="Buscar..." />
+                      <Button fx:id="btnIngresarNuevo" mnemonicParsing="false" onAction="#nuevoCorte" prefHeight="26.0" prefWidth="177.0" text="Ingresar Nuevo Corte" GridPane.columnIndex="1" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </GridPane>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Cantidad de rollo utilizada en el corte" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </GridPane>
+      <Label text="Cortes" GridPane.halignment="CENTER" />
+      <HBox alignment="CENTER" prefHeight="15.0" prefWidth="917.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <children>
+            <Button id="btnSecundario" mnemonicParsing="false" onAction="#imprimirDelantera" text="Imprimir control delantera" />
+            <Button id="btnSecundario" mnemonicParsing="false" onAction="#imprimirTrasera" text="Imprimir control trasera" />
+            <Button id="btnSecundario" mnemonicParsing="false" onAction="#imprimirEnsamble" text="Imprimir Control ensamble" />
+            <Button id="btnSecundario" mnemonicParsing="false" onAction="#imprimirControlCorte" text="Imprimir control corte" />
+         </children>
+      </HBox>
+   </children>
+</GridPane>

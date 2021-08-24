@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="857.0" spacing="10.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Permiso.RowPermiso">
+    <children>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" fx:id="lblCodigo" text="Código" />
+                <Label id="descripcionItem" fx:id="codigo" text="Label" />
+            </children>
+        </VBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="536.0" spacing="15.0">
+         <children>
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="67.0" text="Modulo" />
+                <Label id="descripcionItem" fx:id="nombre" prefHeight="18.0" prefWidth="338.0" text="Label" />
+         </children></HBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="339.0" spacing="15.0">
+            <children>
+            <CheckBox fx:id="cboxAcceso" mnemonicParsing="false" text="Acceso" />
+            </children></VBox>
+    </children>
+   <padding>
+      <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+   </padding>
+</HBox>

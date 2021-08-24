@@ -1,0 +1,82 @@
+#menu{
+/*-fx-background-image: url("/Img/Operacion.jpg");
+  -fx-background-color: linear-gradient(to bottom,#62F3AF,#60efff);
+-fx-background-color: linear-gradient(135deg,#0FF0B3,#036ED9);*/
+-fx-background-color: linear-gradient( to Bottom, #46EBFF, #88FFD0);
+}
+#titulo{
+-fx-text-fill:#343434;
+-fx-font-size: 20px;
+-fx-font-weight:bold;
+}
+#tituloItem{
+-fx-text-fill:#343434;
+-fx-font-size: 16px;
+-fx-font-weight:bold;
+}
+#subtituloItem{
+-fx-text-fill:#666666;
+-fx-font-size: 16px;
+
+
+}
+.button{
+/*-fx-background-image: url("/Img/delantera.png");*/
+-fx-background-color:#D3468E;
+-fx-background-radius: 8px;
+-fx-text-fill:white;
+-fx-font-size: 15px;
+
+}
+.button:hover{
+/*-fx-background-image: url("/Img/delantera.png");*/
+-fx-background-color:#4648D3;
+-fx-background-radius: 8px;
+-fx-text-fill:white;
+-fx-font-size: 15px;
+
+}
+
+.button :selected{
+-fx-background-color:#D3468E;
+-fx-background-radius: 15px;
+-fx-text-fill:white;
+-fx-font-size: 16px;
+-fx-font-weight:bold;
+}
+#btnAtras{
+/*-fx-background-image: url("/Img/trasera.png");*/
+
+-fx-background-color:#4648D3;
+-fx-background-radius: 15px;
+-fx-text-fill:white;
+-fx-font-size: 16px;
+
+}
+#btnSelecionEstilo{
+/*-fx-background-image: url("/Img/trasera.png");*/
+-fx-background-color:#4648D3;
+-fx-background-radius: 15px;
+-fx-text-fill:white;
+-fx-font-size: 16px;
+
+}
+
+
+/*
+#seccionTop{
+  -fx-border-color: #D3D246 ;
+    -fx-border-width: 0 0 1 0 ;
+    -fx-padding:8;
+}
+#seccionLeft{
+ -fx-border-color: #D3D246 ;
+    -fx-border-width: 0 1 0 0 ;
+    -fx-padding:8;
+}
+
+#seccionBottom{
+ -fx-border-color: #D3D246 ;
+    -fx-border-width: 1 0 0 0 ;
+    -fx-padding:8;
+}*/

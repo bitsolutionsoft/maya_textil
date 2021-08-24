@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Operacion.Estilo.FormEstilo">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="54.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="390.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="75.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="319.0" minHeight="10.0" prefHeight="169.60001525878906" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="177.40001525878904" minHeight="8.0" prefHeight="140.79998474121095" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane prefHeight="191.0" prefWidth="390.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="56.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="74.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="274.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="54.4" minHeight="4.60000047683716" prefHeight="21.799998092651364" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="117.40000190734864" minHeight="10.0" prefHeight="55.79999999999999" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="121.39999237060547" minHeight="10.0" prefHeight="49.8" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="121.39999237060547" minHeight="10.0" prefHeight="44.399992370605474" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Codigo" visible="false" GridPane.columnIndex="1" />
+            <Label text="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Estado" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCodigo" visible="false" GridPane.columnIndex="2" />
+            <TextField fx:id="txtNombre" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <children>
+                  <CheckBox fx:id="cboxActivo" mnemonicParsing="false" text="Activo" />
+                  <CheckBox fx:id="cboxNoActivo" mnemonicParsing="false" text="No Activo" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <VBox alignment="CENTER" prefHeight="149.0" prefWidth="390.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Button id="btnPrimario" fx:id="btnIngresar" mnemonicParsing="false" onAction="#IngresaEstilo" prefHeight="31.0" prefWidth="197.0" text="Ingresar" />
+            <Label fx:id="btnCancelar" onMouseClicked="#Cancelar" text="Salir" />
+         </children>
+      </VBox>
+      <Label fx:id="lblTitulo" text="Ingresar nuevo estilo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>

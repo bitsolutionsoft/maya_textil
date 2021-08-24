@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="680.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Corte.RowCorte">
+    <children>
+        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="109.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="146.0" text="Codigo Corte:" />
+                <Label id="descripcionItem" fx:id="corte" text="Label" />
+            <Label id="tituloItem" prefHeight="18.0" prefWidth="83.0" text="Fecha:" />
+            <Label id="descripcionItem" fx:id="fecha" text="Label" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="179.0" spacing="5.0">
+            <children>
+            <Label id="tituloItem" text="Estilo" />
+            <Label id="descripcionItem" fx:id="nombreestilo" text="Label" />
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="79.0" text="Cantidad:" />
+                <Label id="descripcionItem" fx:id="cantidad" text="Label" />
+            </children></VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="149.0" spacing="5.0">
+            <children>
+                <Label id="tituloItem" prefHeight="18.0" prefWidth="189.0" text="Cantidad de Rollos" />
+                <Label id="descripcionItem" fx:id="rollo" text="Label" />
+                <Label id="tituloItem" fx:id="lblidestilo" prefHeight="18.0" prefWidth="94.0" text="Codigo Estilo:" />
+                <Label id="descripcionItem" fx:id="estilo" prefHeight="18.0" prefWidth="338.0" text="Label" />
+            </children></VBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="81.0" spacing="15.0">
+            <children>
+                <Label id="tituloItem" text="Estado" />
+                <Label id="descripcionItem" fx:id="estado" text="Label" />
+            </children></VBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="139.0" spacing="15.0">
+            <children>
+            <GridPane prefHeight="101.0" prefWidth="151.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.00000381469727" minWidth="10.0" prefWidth="66.00000381469727" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="47.0" minWidth="10.0" prefWidth="37.999996185302734" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <Button fx:id="btnEliminar" mnemonicParsing="false" prefHeight="26.0" prefWidth="32.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                      <Button fx:id="btnEditar" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label text="Eliminar" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Label text="Editar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</HBox>
