@@ -30,16 +30,19 @@ private final  boolean guardar=true;
     public void Constancia(List<ConstanciaPago> lista, float totaloperacion, float descontado, float  totalfinal, String empleado, boolean imprimir){
         File nuevoDirectorio=new File(path);
      nuevoDirectorio.mkdir();
-        Map<String,Object> par = new HashedMap();
+        Map<String,Object> par = new HashMap();
         par.put("subtotalfinal",totaloperacion);
         par.put("descontado",descontado);
         par.put("totalfinal",totalfinal);
         par.put("empleado",empleado);
+
         par.put("fecha",getFecha());
 
         try {
+
             JasperPrint jPrint = JasperFillManager.fillReport(this.getClass().getResourceAsStream(fac), par,
                     new JRBeanCollectionDataSource(lista));
+
             if(imprimir){
                 JasperPrintManager.printReport(jPrint, false);
             }

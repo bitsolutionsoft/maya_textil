@@ -372,7 +372,6 @@ public class PagoController implements Initializable {
                             listdatelleAdelanto.get(i).getIdempleado(),
                             listdatelleAdelanto.get(i).getCantidad(),
                             listdatelleAdelanto.get(i).getConcepto(),
-
                             listdatelleAdelanto.get(i).getEstado()
                     ), "update");
                 }
@@ -494,23 +493,13 @@ totalAPagar();
     }
 
     public void imprimirVoucher(ObservableList<DetallePago> list, float operacion, float descuentos, float totals) {
-        float subtotal=operacion;
-        float descuento=descuentos;
-        float total=totals;
         String empleado= empleadoSeleccionado.getNombre()+ " "+empleadoSeleccionado.getApellido();
-
         ConstanciaPago constanciaPago=new ConstanciaPago();
-
-
         ObservableList<ConstanciaPago> lista=FXCollections.observableArrayList(constanciaPago.datos(list));
-      /*  for (int i=0; i<list.size();i++){
-            costo_total= costo_total+ list.get(i).getSubtotal();
-            total_prodcuto=total_prodcuto+list.get(i).getCantidad();
-        }*/
-        ImprimirVale imprimirVale=new ImprimirVale();
-        imprimirVale.Constancia(lista,subtotal,descuento,total,empleado,imprimir);
-
-
+        if (!list.isEmpty()) {
+            ImprimirVale imprimirVale = new ImprimirVale();
+            imprimirVale.Constancia(lista, operacion, descuentos, totals, empleado, imprimir);
+        }
     }
 
     public void AbrirHistorial(ActionEvent actionEvent) {

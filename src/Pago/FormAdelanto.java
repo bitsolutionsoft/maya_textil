@@ -52,13 +52,15 @@ public class FormAdelanto implements Initializable {
     public void pasarRegistro(Empleado empleado) {
         if (empleado != null) {
             txtidempleado.setText(String.valueOf(empleado.getCodigo()));
+            labelTitulo.setText(String.valueOf(empleado.getNombre()+" "+empleado.getApellido()));
             estado("Pendiente");
         }
     }
-    public void pasarRegistro2(Adelanto adelanto) {
+    public void pasarRegistro2(Empleado empleado, Adelanto adelanto) {
         if (adelanto != null) {
             accion = "update";
-            labelTitulo.setText("Modificar datos del empleado");
+            txtidempleado.setText(String.valueOf(empleado.getCodigo()));
+            labelTitulo.setText(String.valueOf(empleado.getNombre()+" "+empleado.getApellido()));
             txtidadelanto.setText(String.valueOf(adelanto.getIdadelanto()));
             txtidempleado.setEditable(false); ///
             txtCantidad.setText(String.valueOf(adelanto.getCantidad()));

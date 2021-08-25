@@ -5,12 +5,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox id="rowListView" fx:id="rootRow" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="606.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.RowAdelanto">
+<HBox id="rowListView" fx:id="rootRow" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="639.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.RowAdelanto">
     <children>
           <Label id="descripcionItem" fx:id="idadelanto" prefHeight="17.0" prefWidth="4.0" text="Label" visible="false" />
           <Label id="descripcionItem" fx:id="idempleado" prefHeight="18.0" prefWidth="2.0" text="Label" visible="false" />
-          <Label id="tituloItem" fx:id="fecha" prefHeight="18.0" prefWidth="93.0" text="Label" />
-          <Label id="descripcionItem" fx:id="concepto" prefHeight="18.0" prefWidth="239.0" text="Label" />
+          <Label id="tituloItem" fx:id="fecha" prefHeight="18.0" prefWidth="151.0" text="Label" />
+          <Label id="descripcionItem" fx:id="concepto" prefHeight="29.0" prefWidth="175.0" text="Label" />
           <Label id="descripcionItem" fx:id="cantidad" prefHeight="17.0" prefWidth="138.0" text="Label" />
         <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="146.0" spacing="15.0">
             <children>

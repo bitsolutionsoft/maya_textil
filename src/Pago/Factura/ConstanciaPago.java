@@ -61,7 +61,6 @@ public class ConstanciaPago {
         for (int i=0; i<list.size(); i++){
             if (list.get(i).getEstado().equals("Cancelado")){
             ConstanciaPago modelo=new ConstanciaPago();
-         //   modelo.setCodigo(String.valueOf(list.get(i).getIdoperacion()));
             modelo.setNombre(list.get(i).getNombre());
             modelo.setCantidad(list.get(i).getCantidad());
             modelo.setPrecio(list.get(i).getPrecio());

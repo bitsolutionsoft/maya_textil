@@ -76,8 +76,9 @@ public class CellAdelanto extends ListCell<Adelanto> {
                     stage.setTitle("Modificar Adelanto");
                     stage.getIcons().add(new Image("/Img/icon.png"));
                     stage.setScene(new Scene(parent));
+                    Empleado emp1=new Empleado(Integer.parseInt(rowAdelanto.idempleado.getText()),"","","",0,"");
                     FormAdelanto formAdelanto = loader.<FormAdelanto>getController();
-                    formAdelanto.pasarRegistro2(adelanto);
+                    formAdelanto.pasarRegistro2(emp1,adelanto);
                     stage.show();
                     stage.setOnHiding((event -> {
                         PagoController pagoController = new PagoController();

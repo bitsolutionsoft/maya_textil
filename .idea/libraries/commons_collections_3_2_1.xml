@@ -2,15 +2,8 @@
   <library name="commons-collections-3.2.1">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/src/Libreria/commons-collections-3.2.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/Libreria/commons-collections4-4.3-tests.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/Libreria/commons-collections4-4.3.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/src/Libreria/commons-collections4-4.3-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/src/Libreria/commons-collections4-4.3-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/Libreria/commons-collections4-4.3-test-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

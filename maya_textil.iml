@@ -10,18 +10,23 @@
     <orderEntry type="library" name="javafx-swt" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.25" level="project" />
     <orderEntry type="library" name="TrayNotification" level="project" />
-    <orderEntry type="library" name="pdfbox-3.0.0-RC1" level="project" />
-    <orderEntry type="library" name="commons-logging-1.2" level="project" />
-    <orderEntry type="library" name="fontbox-3.0.0-RC1" level="project" />
-    <orderEntry type="library" name="itextpdf-5.4.1" level="project" />
     <orderEntry type="library" name="commons-beanutils-1.9.0" level="project" />
-    <orderEntry type="library" name="commons-digester-2.1" level="project" />
-    <orderEntry type="library" name="commons-javaflow" level="project" />
-    <orderEntry type="library" name="commons-logging-1.21" level="project" />
     <orderEntry type="library" name="commons-collections-3.2.1" level="project" />
-    <orderEntry type="library" name="itext-2.1.7.js4" level="project" />
     <orderEntry type="library" name="commons-collections4-4.3-javadoc" level="project" />
-    <orderEntry type="library" name="jasperreports-fonts-6.17.0" level="project" />
-    <orderEntry type="library" name="jasperreports-6.17.0" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.3-sources" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.3-test-sources" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.3-tests" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.3" level="project" />
+    <orderEntry type="library" name="commons-digester-2.1" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="itext-2.1.7.js4" level="project" />
+    <orderEntry type="library" name="itextpdf-5.4.1" level="project" />
+    <orderEntry type="library" name="jasperreports-6.3.0" level="project" />
+    <orderEntry type="library" name="jcommon-1.0.15" level="project" />
+    <orderEntry type="library" name="jfreechart-1.0.12" level="project" />
+    <orderEntry type="library" name="pdfbox-3.0.0-RC1" level="project" />
+    <orderEntry type="library" name="jasperreports-fonts-6.3.0" level="project" />
+    <orderEntry type="library" name="fontbox-3.0.0-RC1" level="project" />
+    <orderEntry type="library" name="commons-javaflow" level="project" />
   </component>
 </module>

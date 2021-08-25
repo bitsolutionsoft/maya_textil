@@ -25,8 +25,12 @@ public class Historial implements Initializable {
     static FilteredList<DetallePago> filterDetallePago;
     public ListView<Empleado> listEmpleado;
     public ListView<DetallePago>listPago;
+    public ListView<Adelanto>listCancelado;
+
     public Label labelTitulo;
     private Empleado Seleccionado;
+    static ObservableList<Adelanto> listdatelleAdelanto;
+    static FilteredList<Adelanto> filterDetalleAdelanto;
 
     public void cancelados(){
 
@@ -37,12 +41,15 @@ public class Historial implements Initializable {
     }
     public void pasarRegistro(Empleado empleado) {
         if (empleado != null) {
-            labelTitulo.setText(String.valueOf(empleado.getNombre()+""+empleado.getApellido()));
+
+            labelTitulo.setText(String.valueOf(empleado.getNombre()+" "+empleado.getApellido()));
             Seleccionado=empleado;
             llenarCancelado(listPago,Seleccionado);
+            llenarAdelanto(listCancelado,Seleccionado);
         }
     }
     public  void llenarCancelado(ListView<DetallePago> listView,Empleado empleado){
+
         DataDetallePago datos=new DataDetallePago();
         listdatellePago = FXCollections.observableArrayList(datos.viewDetallePagoXEmp(new DetallePago(0,0,empleado.getCodigo(),0,0,0,0,0,"Cancelado"),"viewxemp"));
         filterDetallePago=new FilteredList<DetallePago>(listdatellePago,s->true);
@@ -57,7 +64,20 @@ public class Historial implements Initializable {
 
     }
 
+    public  void llenarAdelanto(ListView<Adelanto> listView,Empleado empleado){
+        DataAdelanto datos=new DataAdelanto();
+        listdatelleAdelanto = FXCollections.observableArrayList(datos.viewAdelanto(new Adelanto(0,empleado.getCodigo(),0,"","Cancelado"),"viewxemp"));
+        filterDetalleAdelanto=new FilteredList<Adelanto>(listdatelleAdelanto,s->true);
+        listView.setItems(filterDetalleAdelanto);
+        listView.setCellFactory(new Callback<ListView<Adelanto>, ListCell<Adelanto>>() {
+            @Override
+            public ListCell<Adelanto> call(ListView<Adelanto> listView) {
+                CellACancelado cellAcancelado=new CellACancelado();
+                return  cellAcancelado;
+            }
+        });
 
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

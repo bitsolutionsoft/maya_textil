@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="724.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.RowPagado">
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="724.0" spacing="5.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.RowPagado">
     <children>
         <VBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="0.0" spacing="5.0">
             <children>
@@ -26,9 +26,9 @@
         </HBox>
         <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="314.0" spacing="15.0">
             <children>
-                <Label id="btnOpcion" fx:id="btnEliminar" prefHeight="39.0" prefWidth="80.0" text="Eliminar" />
-                <Label id="btnOpcion1" fx:id="btnEditar" prefHeight="39.0" prefWidth="77.0" text="Editar" />
-                <ImageView fx:id="estadoPago" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                <Label id="btnOpcion" fx:id="btnEliminar" prefHeight="39.0" prefWidth="80.0" text="Eliminar" visible="false" />
+                <Label id="btnOpcion1" fx:id="btnEditar" prefHeight="39.0" prefWidth="77.0" text="Editar" visible="false" />
+                <ImageView fx:id="estadoPago" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" visible="false" />
             </children>
         </HBox>
     </children>
