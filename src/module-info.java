@@ -17,8 +17,9 @@ module maya.textil {
 
 
 
-    requires jasperreports;
-    requires jasperreports.fonts;
+  requires jasperreports;
+  requires jasperreports.fonts;
+ // requires jasperreports.javaflow;
 
     requires commons.beanutils;
     requires commons.digester;

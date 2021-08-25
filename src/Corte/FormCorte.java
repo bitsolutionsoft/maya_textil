@@ -8,8 +8,6 @@ import Corte.DAO.Corte;
 import Corte.DAO.DataCorte;
 import Corte.DAO.DataRollos;
 import Corte.DAO.Rollos;
-import Empleado.DAO.DataEmpleado;
-import Empleado.DAO.Empleado;
 import Operacion.Estilo.DAO.Estilo;
 import Operacion.Estilo.EstiloController;
 import javafx.collections.FXCollections;
@@ -29,7 +27,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -64,7 +61,7 @@ public class FormCorte implements Initializable {
     public Label lbCodigo;
     public Label lbNombre;
     public Label lbEstado2;
-    private Estilo estiloSeleccionado = null;
+    private  Estilo estiloSeleccionado ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
