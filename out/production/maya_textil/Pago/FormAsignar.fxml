@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="679.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.FormAsignar">
+<GridPane id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="679.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.FormAsignar">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="39.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="472.0" />
@@ -11,9 +11,9 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="650.0" minHeight="10.0" prefHeight="380.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="146.0" minHeight="0.0" prefHeight="74.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="70.0" minHeight="7.0" prefHeight="45.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="650.0" minHeight="10.0" prefHeight="362.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="146.0" minHeight="0.0" prefHeight="61.80000000000001" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="74.59999999999997" minHeight="7.0" prefHeight="74.59999999999997" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
         <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -29,7 +29,6 @@
                 <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="16.0" />
@@ -42,23 +41,25 @@
                 <Label fx:id="lblEmpleado" prefHeight="36.0" prefWidth="224.0" text="oscar" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
                 <Label prefHeight="18.0" prefWidth="100.0" text="Cantidad:" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                 <Label prefHeight="18.0" prefWidth="129.0" text="Operacion:" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+               <children>
+                      <TextField fx:id="txtDescuento" prefHeight="36.0" prefWidth="235.0" visible="false" />
+               </children></HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                     <children>
                         <CheckBox fx:id="chbPendiente" mnemonicParsing="false" onAction="#estadoPendiente" selected="true" text="Pendiente" />
                         <CheckBox fx:id="chbCancelado" mnemonicParsing="false" onAction="#estadoCancelado" text="Cancelado" />
                     </children>
                 </HBox>
                 <Label prefHeight="29.0" prefWidth="76.0" text="Precio:" GridPane.rowIndex="4" />
-                <Label prefHeight="31.0" prefWidth="79.0" text="Descuento:" GridPane.rowIndex="5" />
-                <Label prefHeight="31.0" prefWidth="74.0" text="Total:" GridPane.rowIndex="6" />
-                <Label fx:id="lbTotal" prefHeight="30.0" prefWidth="212.0" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label prefHeight="31.0" prefWidth="79.0" text="Descuento:" visible="false" GridPane.rowIndex="7" />
+                <Label prefHeight="31.0" prefWidth="74.0" text="Total:" GridPane.rowIndex="5" />
+                <Label fx:id="lbTotal" prefHeight="30.0" prefWidth="212.0" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <ComboBox fx:id="cbxPrecio" prefHeight="32.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <Button id="botonSelect" fx:id="btnOperacion" mnemonicParsing="false" onAction="#AbrirOperacion" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <TextField fx:id="txtDescuento" prefHeight="36.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Estado de  pago" GridPane.rowIndex="7" />
+            <Label prefHeight="18.0" prefWidth="101.0" text="Estado de  pago:" GridPane.rowIndex="6" />
             <Label fx:id="lblIdOperacion" prefHeight="34.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lblidEmpleado" prefHeight="37.0" prefWidth="125.0" GridPane.rowIndex="8" />
+            <Label fx:id="lblidEmpleado" prefHeight="37.0" prefWidth="125.0" visible="false" GridPane.rowIndex="7" />
             </children>
         </GridPane>
         <Button id="btnPrimario" fx:id="btnIngresarEmpleado" mnemonicParsing="false" onAction="#registrarTarea" prefHeight="30.0" prefWidth="291.0" text="Registrar Tarea" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />

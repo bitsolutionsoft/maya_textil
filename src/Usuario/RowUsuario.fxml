@@ -4,30 +4,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="857.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Usuario.RowUsuario">
+<HBox id="rowListView" fx:id="rootRow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="857.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Usuario.RowUsuario">
     <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
          <children>
-            <Label  id="tituloItem" text="Código" />
+            <Label prefHeight="18.0" prefWidth="47.0" text="Código:" />
             <Label id="descripcionItem" fx:id="codigo" text="Label" />
          </children>
       </VBox>
         <VBox prefHeight="80.0" prefWidth="325.0">
             <children>
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="67.0" text="Nombre" />
-                <Label id="descripcionItem" fx:id="nombre" prefHeight="18.0" prefWidth="338.0" text="Label" />
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="132.0" text="Nombre de usuario" />
-                <Label id="descripcionItem" fx:id="usuario" text="Label" />
+                <Label prefHeight="18.0" prefWidth="67.0" text="Nombre:" />
+                <Label id="descripcionItem" fx:id="nombre" prefHeight="23.0" prefWidth="290.0" text="Label" />
+                <Label prefHeight="18.0" prefWidth="205.0" text="Nombre de usuario:" />
+                <Label id="descripcionItem" fx:id="usuario" prefHeight="24.0" prefWidth="198.0" text="Label" />
             </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></VBox>
         <VBox prefHeight="80.0" prefWidth="339.0">
             <children>
-                <Label id="tituloItem" text="Apellido" />
-            <Label id="descripcionItem"  fx:id="apellido" text="Label" />
-                  <Label id="tituloItem" prefHeight="18.0" prefWidth="78.0" text="Dpi" />
-                  <Label id="descripcionItem" fx:id="dpi" text="Label" />
+                <Label prefHeight="23.0" prefWidth="86.0" text="Apellido:" />
+            <Label id="descripcionItem" fx:id="apellido" prefHeight="22.0" prefWidth="196.0" text="Label" />
+                  <Label prefHeight="18.0" prefWidth="78.0" text="Dpi:" />
+                  <Label id="descripcionItem" fx:id="dpi" prefHeight="23.0" prefWidth="188.0" text="Label" />
             </children></VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
          <children>

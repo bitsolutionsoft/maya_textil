@@ -120,17 +120,14 @@ txtTotal.setEditable(false);
                         return  null;
                     }else{
                         bodega.setCantidad(Integer.parseInt(txtCantidad.getText().trim()));
-                        if (txtPrecio.getText().isEmpty()){
-                            Util.Error("Error","El campo precio se encuentra vacío, favor de ingresar el precio");
-                            return  null;
-                        }else{
-                            bodega.setPrecio(Float.parseFloat(txtPrecio.getText()));
-                            bodega.setTotal(Float.parseFloat(txtTotal.getText()));
+
+                            bodega.setPrecio(Float.parseFloat("0.00"));
+                            bodega.setTotal(Float.parseFloat("0.00"));
                             return bodega;
 
                         }
 
-                    }
+
                 }
             }
 

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="fondo" prefHeight="837.0" prefWidth="1220.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.PagoController">
+<GridPane id="fondo" prefHeight="837.0" prefWidth="1220.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.PagoController">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1124.0" minWidth="0.0" prefWidth="0.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1220.0" minWidth="10.0" prefWidth="1220.0" />
@@ -25,7 +25,7 @@
                 <Label id="tituloItem" fx:id="lblidcorte" prefHeight="18.0" prefWidth="182.0" text="Label" />
                 <Button id="btnSecundario" mnemonicParsing="false" onAction="#SeleccionarCorte" text="Seleccionar corte" />
                 <Button id="btnSecundario" fx:id="btnAdelanto" mnemonicParsing="false" onAction="#AbrirAdelanto" prefHeight="26.0" prefWidth="94.0" text="Adelanto" />
-                <Button id="btnSecundario" fx:id="btnHistorial" mnemonicParsing="false" onAction="#AbrirHistorial" prefHeight="26.0" prefWidth="155.0" text="Historia de Pagos" />
+                <Button id="btnSecundario" fx:id="btnHistorial" mnemonicParsing="false" onAction="#AbrirHistorial" prefHeight="26.0" prefWidth="190.0" text="Historial de pago" />
             </children>
         </HBox>
         <GridPane hgap="10.0" prefHeight="607.0" prefWidth="1169.0" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -66,23 +66,22 @@
                         <ListView fx:id="listViewPago" prefHeight="233.0" prefWidth="430.0" GridPane.rowIndex="1" />
                         <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="5">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="119.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="119.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="104.19999237060546" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="174.20000762939452" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="107.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="186.0" />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="29.999998092651367" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="33.600001907348634" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="0.4000000000000057" prefHeight="0.4000000000000057" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button id="btnPrimario" fx:id="btnPagar" mnemonicParsing="false" onAction="#RealizarPago" prefHeight="40.0" prefWidth="170.0" text="Realizar Pago" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                <Label fx:id="lblTotalPago" prefHeight="48.0" prefWidth="142.0" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                <Label text="Total a Pagar" GridPane.rowIndex="2" />
+                                <Button id="btnPrimario" fx:id="btnPagar" mnemonicParsing="false" onAction="#RealizarPago" prefHeight="40.0" prefWidth="170.0" text="Realizar Pago" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label fx:id="lblTotalPago" prefHeight="48.0" prefWidth="142.0" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Label prefHeight="18.0" prefWidth="172.0" text="Total a Pagar:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <CheckBox id="lblTodo1" fx:id="cbxTodo2" mnemonicParsing="false" text="Todo" />
-                                <Label prefHeight="18.0" prefWidth="94.0" text="Total Descuento" GridPane.columnIndex="1" />
+                                <Label prefHeight="18.0" prefWidth="187.0" text="Total Descuento:" GridPane.columnIndex="1" />
                                 <Label fx:id="lblDescuento" prefHeight="18.0" prefWidth="36.0" text="0.00" GridPane.columnIndex="2" />
                                 <CheckBox fx:id="cbxImprimir" mnemonicParsing="false" text="Imprimir" GridPane.columnIndex="3" />
                             </children>
@@ -99,26 +98,28 @@
                             </rowConstraints>
                             <children>
                                 <CheckBox id="lblTodo" fx:id="cbxTodo" mnemonicParsing="false" text="Todo" />
-                                <Label text="Total de Pagos" GridPane.columnIndex="1" />
+                                <Label prefHeight="18.0" prefWidth="135.0" text="Total de Pagos:" GridPane.columnIndex="1" />
                                 <Label fx:id="lblTotalOperacion" text="0.00" GridPane.columnIndex="2" />
                             </children>
                         </GridPane>
                         <ListView fx:id="listViewAdelanto" prefHeight="192.0" prefWidth="430.0" GridPane.rowIndex="4" />
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                                <Label id="descripcionItem" prefHeight="18.0" prefWidth="262.0" text="Operacion" />
-                                <Label id="descripcionItem" prefHeight="17.0" prefWidth="106.0" text="Cantidad" />
-                                <Label id="descripcionItem" prefHeight="17.0" prefWidth="79.0" text="Precio" />
-                                <Label prefHeight="17.0" prefWidth="69.0" text="Total" />
-                                <Label prefHeight="17.0" prefWidth="90.0" text="Opciones" />
+                        <Label prefHeight="18.0" prefWidth="39.0" />
+                                <Label prefHeight="18.0" prefWidth="174.0" text="Operacion:" />
+                                <Label prefHeight="18.0" prefWidth="74.0" text="Cantidad:" />
+                                <Label prefHeight="18.0" prefWidth="67.0" text="Precio:" />
+                                <Label prefHeight="18.0" prefWidth="107.0" text="Total:" />
+                                <Label prefHeight="18.0" prefWidth="74.0" text="Opciones:" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                      <children>
-                                <Label prefHeight="21.0" prefWidth="102.0" text="Fecha" />
-                                <Label prefHeight="18.0" prefWidth="209.0" text="Concepto" />
-                                <Label prefHeight="18.0" prefWidth="174.0" text="Total" />
-                                <Label prefHeight="18.0" prefWidth="99.0" text="Opciones" />
+                        <Label prefHeight="31.0" prefWidth="15.0" />
+                                <Label alignment="CENTER" prefHeight="22.0" prefWidth="109.0" text="Fecha:" />
+                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="167.0" text="Concepto:" />
+                                <Label alignment="TOP_LEFT" prefHeight="18.0" prefWidth="124.0" text="Total:" />
+                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="99.0" text="Opciones:" />
                      </children>
                   </HBox>
                     </children>
@@ -130,7 +131,7 @@
         </GridPane>
         <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="207.0" spacing="200.0" GridPane.columnIndex="1">
             <children>
-              <Label id="titulo" text="Control de Pagos">
+              <Label id="titulo" prefHeight="18.0" prefWidth="139.0" text="Control de Pagos">
                <HBox.margin>
                   <Insets left="150.0" />
                </HBox.margin>

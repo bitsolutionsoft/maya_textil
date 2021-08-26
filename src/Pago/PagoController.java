@@ -380,6 +380,8 @@ public class PagoController implements Initializable {
             lblDescuento.setText("0.0");
             lblTotalPago.setText(String.valueOf(0.0));
         }
+        cbxTodo.setSelected(false);
+        cbxTodo2.setSelected(false);
 totalAPagar();
     }
 

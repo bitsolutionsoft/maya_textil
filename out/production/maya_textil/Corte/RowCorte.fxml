@@ -8,9 +8,9 @@
     <children>
         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="109.0" spacing="5.0">
             <children>
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="146.0" text="Codigo Corte:" />
+                <Label prefHeight="18.0" prefWidth="146.0" text="Codigo Corte:" />
                 <Label id="descripcionItem" fx:id="corte" text="Label" />
-            <Label id="tituloItem" prefHeight="18.0" prefWidth="83.0" text="Fecha:" />
+            <Label prefHeight="18.0" prefWidth="83.0" text="Fecha:" />
             <Label id="descripcionItem" fx:id="fecha" text="Label" />
             </children>
             <padding>
@@ -19,21 +19,21 @@
         </VBox>
         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="179.0" spacing="5.0">
             <children>
-            <Label id="tituloItem" text="Estilo" />
+            <Label prefHeight="18.0" prefWidth="58.0" text="Estilo:" />
             <Label id="descripcionItem" fx:id="nombreestilo" text="Label" />
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="79.0" text="Cantidad:" />
+                <Label prefHeight="18.0" prefWidth="79.0" text="Cantidad:" />
                 <Label id="descripcionItem" fx:id="cantidad" text="Label" />
             </children></VBox>
         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="149.0" spacing="5.0">
             <children>
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="189.0" text="Cantidad de Rollos" />
+                <Label prefHeight="18.0" prefWidth="189.0" text="Cantidad de Rollos:" />
                 <Label id="descripcionItem" fx:id="rollo" text="Label" />
-                <Label id="tituloItem" fx:id="lblidestilo" prefHeight="18.0" prefWidth="94.0" text="Codigo Estilo:" />
+                <Label fx:id="lblidestilo" prefHeight="18.0" prefWidth="94.0" text="Codigo Estilo:" />
                 <Label id="descripcionItem" fx:id="estilo" prefHeight="18.0" prefWidth="338.0" text="Label" />
             </children></VBox>
         <VBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="81.0" spacing="15.0">
             <children>
-                <Label id="tituloItem" text="Estado" />
+                <Label prefHeight="18.0" prefWidth="54.0" text="Estado:" />
                 <Label id="descripcionItem" fx:id="estado" text="Label" />
             </children></VBox>
         <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="139.0" spacing="15.0">

@@ -3,12 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="890.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Corte.FormCorte">
+<GridPane id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="890.0" stylesheets="/css/Forms.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Corte.FormCorte">
 
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="0.0" prefWidth="41.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="824.0" minWidth="10.0" prefWidth="792.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="3.0" prefWidth="45.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
@@ -35,10 +34,8 @@
             </rowConstraints>
             <children>
                 <Label prefHeight="18.0" prefWidth="150.0" text="Codigo Corte:" GridPane.valignment="CENTER" />
-                <TextField fx:id="txtCorte" prefHeight="25.0" prefWidth="380.0" GridPane.columnIndex="1" />
-                <TextField fx:id="txtCantidad" prefHeight="25.0" prefWidth="437.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label prefHeight="18.0" prefWidth="161.0" text="Seleccione estilo" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                <Label prefHeight="18.0" prefWidth="174.0" text="Cantidad:" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                <Label prefHeight="18.0" prefWidth="174.0" text="Cantidad:     " GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                 <Label prefHeight="18.0" prefWidth="175.0" text="Tela utlizada" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                 <Label prefHeight="18.0" prefWidth="183.0" text="Fecha:" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
@@ -53,10 +50,10 @@
                 </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="lbNombre" prefHeight="44.0" prefWidth="351.0" />
+                  <Label fx:id="lbNombre" prefHeight="34.0" prefWidth="181.0" />
                   <Button id="botonSelect" fx:id="btnEstilo" mnemonicParsing="false" onAction="#SeleccionarEStilo" prefHeight="25" prefWidth="25" />
                </children></HBox>
-            <DatePicker fx:id="fecha" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="fecha" prefHeight="36.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label fx:id="lbCodigo" prefHeight="46.0" prefWidth="45.0" text="Label" GridPane.rowIndex="6" />
             <Label text="Estado" GridPane.rowIndex="5" />
             <Button id="btnSecundario" fx:id="SeleccionarTela" mnemonicParsing="false" onAction="#AbrirBodega" text="Seleccionar tela" GridPane.columnIndex="2" GridPane.rowIndex="4" />
@@ -69,6 +66,16 @@
               </columns>
             </TableView>
             <Label fx:id="lblRollo" prefHeight="17.0" prefWidth="24.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                      <TextField fx:id="txtCantidad" prefHeight="34.0" prefWidth="182.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                      <TextField fx:id="txtCorte" prefHeight="26.0" prefWidth="182.0" />
+               </children>
+            </HBox>
             </children>
         </GridPane>
         <Button id="btnPrimario" fx:id="btnIngresarCorte" mnemonicParsing="false" onAction="#registrarCorte" prefHeight="30.0" prefWidth="291.0" text="Ingresar Corte" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />

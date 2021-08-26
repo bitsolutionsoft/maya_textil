@@ -8,7 +8,7 @@
     <children>
         <VBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="100.0" spacing="5.0">
             <children>
-                <Label id="tituloItem" text="Codigo" />
+                <Label prefHeight="18.0" prefWidth="70.0" text="Codigo:" />
                 <Label id="descripcionItem" fx:id="codigo" text="Label" />
             </children>
             <padding>
@@ -17,19 +17,19 @@
         </VBox>
         <VBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="512.0" spacing="5.0">
             <children>
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="67.0" text="Nombre" />
+                <Label prefHeight="18.0" prefWidth="67.0" text="Nombre:" />
                 <Label id="descripcionItem" fx:id="nombre" prefHeight="18.0" prefWidth="499.0" text="Label" />
-                <Label id="tituloItem" prefHeight="18.0" prefWidth="43.0" text="DPI" />
+                <Label prefHeight="18.0" prefWidth="43.0" text="DPI:" />
                 <Label id="descripcionItem" fx:id="dpi" text="Label" />
             </children></VBox>
         <VBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="148.0" spacing="5.0">
             <children>
-                  <Label id="tituloItem" prefHeight="18.0" prefWidth="78.0" text="Telefono:" />
+                  <Label prefHeight="18.0" prefWidth="78.0" text="Telefono:" />
                   <Label id="descripcionItem" fx:id="telefono" text="Label" />
             </children></VBox>
         <VBox alignment="CENTER_LEFT" prefHeight="105.0" prefWidth="162.0" spacing="15.0">
             <children>
-                  <Label id="tituloItem" text="Estado" />
+                  <Label prefHeight="18.0" prefWidth="62.0" text="Estado:" />
                   <Label id="descripcionItem" fx:id="estado" text="Label" />
             </children></VBox>
       <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="146.0" spacing="15.0">

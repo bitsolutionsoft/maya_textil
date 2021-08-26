@@ -38,14 +38,39 @@
                   <Insets bottom="10.0" left="100.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <HBox prefHeight="330.0" prefWidth="1222.0">
+            <HBox prefHeight="426.0" prefWidth="1578.0">
                <children>
                   <TableView fx:id="tblCorte" prefHeight="330.0" prefWidth="707.0" />
                   <Label prefHeight="18.0" prefWidth="34.0" />
-                  <TableView fx:id="tblRollo" prefHeight="330.0" prefWidth="627.0" />
+                  <TableView fx:id="tblRollo" prefHeight="498.0" prefWidth="627.0" />
                </children>
             </HBox>
-            <HBox prefHeight="141.0" prefWidth="1578.0">
+            <GridPane prefHeight="257.0" prefWidth="1578.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="512.0" minWidth="1.9999995231628418" prefWidth="135.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1050.0000004768372" minWidth="10.0" prefWidth="247.2" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1050.0000004768372" minWidth="10.0" prefWidth="456.80000000000007" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1050.0000004768372" minWidth="10.0" prefWidth="338.20000000000005" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1050.0000004768372" minWidth="10.0" prefWidth="231.5999999999999" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.4000000000001" minWidth="10.0" prefWidth="191.4000000000001" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="49.40000190734863" minHeight="10.0" prefHeight="42.6" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="61.4" minHeight="10.0" prefHeight="49.2" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="85.59999237060548" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="82.4" minHeight="10.0" prefHeight="38.00000762939453" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="82.4" minHeight="10.0" prefHeight="79.4" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="18.0" prefWidth="284.0" text="Cantidad de corte:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label prefHeight="18.0" prefWidth="298.0" text="Cantidad de pantalon:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="cantcorte" prefHeight="18.0" prefWidth="459.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="cantpantalon" prefHeight="18.0" prefWidth="492.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label prefHeight="18.0" prefWidth="247.0" text="Informe de corte general por:" GridPane.columnIndex="1" />
+                  <Label fx:id="lblgeneral" prefHeight="18.0" prefWidth="498.0" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+            <HBox prefHeight="141.0" prefWidth="1578.0" visible="false">
                <children>
                   <Label prefHeight="30.0" prefWidth="165.0" />
                   <GridPane prefHeight="56.0" prefWidth="623.0">
@@ -66,7 +91,7 @@
                   </GridPane>
                </children>
             </HBox>
-            <ListView fx:id="listBodega" prefHeight="418.0" prefWidth="1578.0" />
+            <ListView fx:id="listBodega" prefHeight="117.0" prefWidth="1578.0" visible="false" />
          </children>
       </VBox>
    </content>

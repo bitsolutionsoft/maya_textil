@@ -57,6 +57,9 @@ public class InformeController implements Initializable {
     public TableColumn<ResumenPago,String> cellTotal2;
     public TableColumn<ResumenPago,String> cellNombre2;
     public TableColumn<ResumenPago,String> cellSutotal;
+    public Label cantcorte;
+    public Label cantpantalon;
+    public Label lblgeneral;
 
     SizeColumnTable size_tabla=new SizeColumnTable();
     ObservableList<ResumenCorte> listPagos=null;
@@ -91,6 +94,8 @@ public class InformeController implements Initializable {
                 rMes.setSelected(false);
                 rSemana.setSelected(false);
                 VerCierreCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"dia");
+                llenarInformeCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"dia");
+                lblgeneral.setText("Dìa");
             }
         });
         rSemana.setOnAction(new EventHandler<ActionEvent>() {
@@ -99,6 +104,8 @@ public class InformeController implements Initializable {
                 rdia.setSelected(false);
                 rMes.setSelected(false);
                 VerCierreCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"semana");
+                llenarInformeCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"semana");
+                lblgeneral.setText("Semana");
             }//pruebo
         });
         rMes.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,17 +114,12 @@ public class InformeController implements Initializable {
 
                 rdia.setSelected(false);
                 rSemana.setSelected(false);
-                VerCierreCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"mes");//ahi estamos
+                VerCierreCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"mes");
+                llenarInformeCorte(new Cortes(obtenerfechaHoy(),obtenerfechaHoy()),"mes");
+                lblgeneral.setText("Mes");
             }
         });
-        btnVer.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                rdia.setSelected(false);
-                rSemana.setSelected(false);
-                rMes.setSelected(false);
-            }
-        });
+
         btnVer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -126,8 +128,10 @@ public class InformeController implements Initializable {
                 rMes.setSelected(false);
                 String fe_inicial=returnFechaSelect(fInicial,"Fecha Inicial");
                 String fe_final=returnFechaSelect(fFinal,"Fecha Final");
-                System.out.println(fe_inicial);
                 VerCierreCorte(new Cortes(fe_inicial,fe_final),"rango");
+                llenarInformeCorte(new Cortes(fe_inicial,fe_final),"rango");
+                lblgeneral.setText("de "+ fe_inicial+ " al "+ fe_final);
+
 
             }
 
@@ -152,9 +156,17 @@ public class InformeController implements Initializable {
         cellIdcorte=new TableColumn<>("Código");
         cellNombre=new TableColumn<>("Nombre de Estilo");
         cellCantidad=new TableColumn<>("Cantidad");
-        cellFecha_corte=new TableColumn<>("Fecha del Corte");
-        cellCant_Rollo=new TableColumn<>("Cantidad de Rollo");
+        cellFecha_corte=new TableColumn<>("Fecha Corte");
+        cellCant_Rollo=new TableColumn<>("Cant. Rollo");
         cellTotal=new TableColumn<>("Total");
+
+        cellIdcorte.setPrefWidth(70);
+        cellNombre.setPrefWidth(310);
+        cellCant_Rollo.setPrefWidth(90);
+        cellCantidad.setPrefWidth(70);
+        cellTotal.setPrefWidth(70);
+        cellFecha_corte.setPrefWidth(90);
+
 
         cellIdcorte.setCellValueFactory(new PropertyValueFactory<ResumenCorte,String>("idcorte"));
         cellNombre.setCellValueFactory(new PropertyValueFactory<ResumenCorte,String>("nombre"));
@@ -164,7 +176,7 @@ public class InformeController implements Initializable {
         cellTotal.setCellValueFactory(new PropertyValueFactory<ResumenCorte,String>("total"));
         tblCorte.setEditable(true);
         tblCorte.getColumns().addAll(cellIdcorte, cellNombre,cellCantidad, cellFecha_corte ,cellCant_Rollo,cellTotal);
-        Platform.runLater(()-> size_tabla.ajustarColumna(tblCorte));
+       // Platform.runLater(()-> size_tabla.ajustarColumna(tblCorte));
 
         //tabla rollo
         cellCorte=new TableColumn<>("Codigo corte");
@@ -279,6 +291,16 @@ public class InformeController implements Initializable {
 
         }
 
+
+
+    }
+    public void llenarInformeCorte(Cortes c,String accion){
+        DataInformeCorte data=new DataInformeCorte();
+        ObservableList<InformeCorte> corte=FXCollections.observableArrayList(data.viewCortes(c,accion));
+        if (!corte.isEmpty()){
+            cantcorte.setText(String.valueOf(corte.get(0).getCanCorte()));
+            cantpantalon.setText(String.valueOf(corte.get(0).getCantPantalon()));
+        }
 
 
     }
