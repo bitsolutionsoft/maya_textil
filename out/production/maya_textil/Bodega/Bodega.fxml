@@ -22,7 +22,10 @@
                 <TextField fx:id="txtBuscar" prefHeight="30.0" prefWidth="552.0" promptText="Buscar..." GridPane.rowIndex="1" />
             </children>
         </GridPane>
+        <TableView fx:id="tblBodega" prefHeight="460.0" prefWidth="878.0"/>
+        <!--
       <ListView fx:id="listBodega" prefHeight="460.0" prefWidth="878.0" />
+      -->
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

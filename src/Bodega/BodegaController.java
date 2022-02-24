@@ -2,21 +2,28 @@ package Bodega;
 
 import Bodega.DAO.Bodega;
 import Bodega.DAO.DataBodega;
+import ClassAux.AlertDialog;
+import ClassAux.EstiloBoton;
+import ClassAux.SizeColumnTable;
 import Usuario.DAO.DataUsuario;
 import Usuario.DAO.Usuario;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -27,28 +34,92 @@ import java.util.ResourceBundle;
 public class BodegaController implements Initializable {
     public Button btnIngresarNuevo;
     public TextField txtBuscar;
-    public ListView <Bodega> listBodega;
+
     static ObservableList<Bodega> bodega;
     static FilteredList<Bodega> fileterBodega;
-
+    public TableView<Bodega> tblBodega;
+    public TableColumn<Bodega,String> cellCodigo;
+    public TableColumn<Bodega,String> cellTipo;
+    public TableColumn<Bodega,String> cellCantidad;
+    public TableColumn<Bodega,String> cellColor;
+    public TableColumn<Bodega,String> cellOpciones;
+    AlertDialog alertDialog=new AlertDialog();
+    SizeColumnTable sizeColumnTable=new SizeColumnTable();
+    EstiloBoton estiloBoton=new EstiloBoton();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initList(listBodega);
+        initTabla();
+        initList();
         llenarLista();
     }
-    public  void initList(ListView<Bodega> listView){
+    public void initTabla(){
+        cellCodigo =new TableColumn<>("Código");
+        cellTipo =new TableColumn<>("Tipo de tela");
+        cellCantidad =new TableColumn<>("Cantidad/Rollos");
+        cellColor =new TableColumn<>("Color");
+        cellOpciones =new TableColumn<>("Opciones");
+
+        cellCodigo.setCellValueFactory(new PropertyValueFactory<Bodega,String>("codigo_tela"));
+        cellTipo.setCellValueFactory(new PropertyValueFactory<Bodega,String>("tipo"));
+        cellCantidad.setCellValueFactory(new PropertyValueFactory<Bodega,String>("colores"));
+        cellColor.setCellValueFactory(new PropertyValueFactory<Bodega,String>("cantidad"));
+
+        Callback<TableColumn<Bodega,String>,TableCell<Bodega,String>> cellFactory=(TableColumn<Bodega,String> param)->{
+            final  TableCell<Bodega, String> cell=new TableCell<>(){
+                @Override
+                public void updateItem(String item,boolean empty){
+                    if (empty){
+                        setGraphic(null);
+                    }else{
+                        ImageView editButton=new ImageView(estiloBoton.editImg());
+                        editButton.setFitHeight(estiloBoton.sizeButton());
+                        editButton.setFitWidth(estiloBoton.sizeButton());
+                        editButton.setStyle(estiloBoton.Boton());
+
+                        ImageView deleteButton=new ImageView(estiloBoton.deleteImg());
+                        editButton.setFitHeight(estiloBoton.sizeButton());
+                        editButton.setFitWidth(estiloBoton.sizeButton());
+                        editButton.setStyle(estiloBoton.Boton());
+
+                        deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(javafx.scene.input.MouseEvent event) {
+                                Bodega bodega=tblBodega.getSelectionModel().getSelectedItem();
+                                EliminarBodega(bodega);
+
+                            }
+                        });
+
+                        editButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                            @Override
+                            public void handle(javafx.scene.input.MouseEvent event) {
+                                Bodega bodega=tblBodega.getSelectionModel().getSelectedItem();
+                                EditarBodega(bodega);
+                            }
+                        });
+
+                        HBox containBoton=new HBox(deleteButton,editButton);
+                        containBoton.setStyle("-fx-alignment:center");
+                        HBox.setMargin(deleteButton,new Insets(2,10,2,2));
+                        HBox.setMargin(editButton,new Insets(2,2,2,10));
+                        setGraphic(containBoton);
+                    }
+                    setText(null);
+                }
+            };
+            return cell;
+        };
+        cellOpciones.setCellFactory(cellFactory);
+        Platform.runLater(()-> sizeColumnTable.ajustarColumna(tblBodega));
+        tblBodega.getColumns().addAll(cellCodigo,cellTipo,cellColor,cellCantidad,cellOpciones);
+    }
+    public  void initList(){
         DataBodega datos=new DataBodega();
         bodega= FXCollections.observableArrayList(datos.viewBodega(new Bodega(), "viewall"));
         fileterBodega=new FilteredList<>(bodega, s->true);
-        listView.setItems(fileterBodega);
-       listView.setCellFactory(new Callback<ListView<Bodega>, ListCell<Bodega>>() {
-           @Override
-           public ListCell<Bodega> call(ListView<Bodega> bodegaListView) {
-               CellBodega cellBodega=new CellBodega();
-               return cellBodega;
-           }
-       });
+        tblBodega.setItems(fileterBodega);
+
     }
     public void llenarLista(){
         txtBuscar.textProperty().addListener((prop,old,text) ->{
@@ -80,8 +151,8 @@ public class BodegaController implements Initializable {
             stage.show();
             stage.getIcons().add(new Image("/Img/icon.png"));
             stage.setOnHiding((event ->{
-                initList(listBodega);
-                listBodega.refresh();
+               initList();
+               tblBodega.refresh();
             }));
 
 
@@ -92,5 +163,36 @@ public class BodegaController implements Initializable {
 
 
 
+    }
+    public void EliminarBodega(Bodega bodega){
+        if (alertDialog.alertConfirm("", "Esta seguro de eliminar este registro")){
+            DataBodega datos=new DataBodega();
+            datos.crudBodega(bodega,"delete");
+            BodegaController bodegaController=new BodegaController();
+            initList();
+            tblBodega.refresh();
+
+        }
+    }
+    public void EditarBodega(Bodega bodega){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Bodega/FormBodega.fxml"));
+            Parent parent = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Maya Textil");
+            stage.getIcons().add(new Image("/Img/icon.png"));
+            stage.setScene(new Scene(parent));
+            FormBodega formEmpleado = loader.getController();
+            formEmpleado.pasarRegistro(bodega);
+            stage.show();
+            stage.setOnHiding((event -> {
+                initList();
+                tblBodega.refresh();
+            }));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 }

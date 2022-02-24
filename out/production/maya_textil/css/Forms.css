@@ -1,11 +1,18 @@
+
 #fondo{
-/*-fx-background-color:#89F7E3;#F7899D*/
--fx-background-color: linear-gradient( to Bottom, #46EBFF, #88FFD0);
+-fx-background-color:#abfce4;
+/*-fx-background-color: linear-gradient( to Bottom, #46EBFF, #88FFD0);*/
     }
 
+ .label{
+-fx-text-fill:#141414;
+ -fx-font-size:16px;
+
+ }
+
 #tituloForm{
--fx-text-fill:#666666;
--fx-font-size:16px;
+-fx-text-fill:#141414;
+-fx-font-size:17px;
 -fx-font-weight:bold;
 }
 
@@ -16,17 +23,17 @@
      -fx-background-color: white;
      -fx-border-color: #edebe9;
     -fx-border-width: 1.5px;
-     -fx-font-size: 14px;
-         -fx-background-radius: 8px;
+     -fx-font-size: 16px;
+         -fx-background-radius: 9px;
     -fx-border-radius: 8px;
-    -fx-font-weight: bold;
+
  }
  .text-field: focused{
      -fx-background-insets: 0;
      -fx-background-color: white;
      -fx-border-color: #1495cc;
  -fx-border-width: 1.5px;
--fx-font-size: 14px;
+-fx-font-size: 16px;
  }
  #botonSelect{
       -fx-background-color: white;
@@ -66,7 +73,7 @@ estilo de los combobox
 -fx-background-color:#325FD4;
 -fx-background-radius: 10px;
 -fx-text-fill:white;
--fx-font-size: 14px;
+-fx-font-size: 16px;
 -fx-font-weight:bold;
 }
 #btnSecundario{
@@ -75,7 +82,7 @@ estilo de los combobox
 -fx-border-radius: 10px;
 -fx-background-radius: 10px;
 -fx-text-fill:#325FD4;
--fx-font-size: 14px;
+-fx-font-size: 16px;
 -fx-font-weight:bold;
 }
 
@@ -98,11 +105,9 @@ estilo de los combobox
          -fx-background-color: white;
 }
 
- .label{
--fx-text-fill:#282C8C;
- -fx-font-size:15px;
- -fx-font-weight:bold;
- }
+.check-box .label{
+-fx-font-size:14px;
+}
 
 /*date picker _____________________________________________*/
 .date-picker:editable > .arrow-button > * {
@@ -167,8 +172,6 @@ estilo de los combobox
     -fx-text-fill: white;
 }
 
-/*css de tableview*/
-
 .table-view {
     -fx-background-color: transparent;
 }
@@ -180,14 +183,15 @@ estilo de los combobox
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
-    -fx-background-color: linear-gradient(to bottom,#3a7bd5,#473AD5 );
-    -fx-size:45;
+    -fx-background-color:#9679DA;
+    -fx-size:35;
 
 }
 
 .table-view .column-header .label{
    -fx-text-fill: white;
    -fx-font-weight: bold;
+   -fx-font-size:18px;
 }
 
 .table-view .cell{
@@ -196,29 +200,35 @@ estilo de los combobox
  /*  -fx-background-color: transparent;
 -fx-border-color: #1a237e;*/
   -fx-text-fill:#191924;
+  -fx-font-size:16px;
   -fx-alignment: CENTER_LEFT;
 
 }
-.table-row-cell:selected {
-   -fx-background-color: #ba70ff00;
-   -fx-text-background-color:  #ba70ff;
-    -fx-table-cell-border-color: transparent;
+.table-row-cell: even{
+ -fx-background-color:#abfce4;
+ -fx-background-insets: 0, 0 0 1 0;
+     -fx-padding: 0.0em;
 }
 .table-row-cell: odd{
-    -fx-background-color:#defbfe44;
+-fx-background-color: #D1FFE9;
+
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
 .table-row-cell: hover {
-    -fx-background-color:#ad68cb22;
+     -fx-background-color: #ceb6e2;
     -fx-text-background-color: white;
     -fx-table-cell-border-color: transparent;
 }
-/* scroll bar starts here */
 
-/* The increment and decrement button CSS class of scrollbar */
+.table-row-cell:selected{
+   -fx-background-color: #9679DA;
+   -fx-text-background-color:  white;
+    -fx-table-cell-border-color: transparent;
+    -fx-fill:red;
+}
 
-/* The main scrollbar **track** CSS class  */
+/* estilo de scrollbars vertical y horizontal */
 
 
 
@@ -236,11 +246,12 @@ estilo de los combobox
     -fx-padding: 2;
 }
 .table-view .virtual-flow .scroll-bar:vertical .thumb{
-    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+    -fx-background-color:  linear-gradient(to bottom, #C393ED44, #9679DA);
 }
 
 .table-view .virtual-flow .scroll-bar:horizontal .thumb {
-    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+    -fx-background-color:  linear-gradient(to right, #C393ED44, #9679DA);
 }
+
 
 

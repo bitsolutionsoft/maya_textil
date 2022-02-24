@@ -45,6 +45,7 @@ module maya.textil {
     opens Empleado;
     opens Empleado.DAO;
     opens Usuario;
+    opens Usuario.DAO;
     opens  Permiso;
     opens  Permiso.DAO;
     opens Corte;

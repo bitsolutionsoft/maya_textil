@@ -86,6 +86,7 @@ public class DataDetallePago {
                 dt.setTotal(resultSet.getFloat("total"));
                 dt.setEstado(resultSet.getString("estado"));
                 dt.setFecha(resultSet.getString("fecha"));
+                dt.setIdcorte(resultSet.getString("idcorte"));
                 lista.add(dt);
             }
 

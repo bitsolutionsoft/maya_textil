@@ -3,7 +3,7 @@ package Pago.DAO;
 public class DetallePago {
     int iddetalle, idpago, idempleado, idoperacion, cantidad;
     float precio,descuento,total;
-    String estado,nombre,fecha;
+    String estado,nombre,fecha,idcorte;
 
     public DetallePago(){}
     public DetallePago(int iddetalle, int idpago, int idempleado, int idoperacion, int cantidad, float precio, float descuento, float total, String estado){
@@ -107,4 +107,6 @@ public class DetallePago {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    public String getIdcorte(){return idcorte;}
+    public void setIdcorte(String idcorte){this.idcorte=idcorte;}
 }

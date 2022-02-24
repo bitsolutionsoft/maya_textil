@@ -7,7 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="javafx-swt" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.25" level="project" />
     <orderEntry type="library" name="TrayNotification" level="project" />
     <orderEntry type="library" name="commons-beanutils-1.9.0" level="project" />
@@ -28,5 +27,6 @@
     <orderEntry type="library" name="jasperreports-fonts-6.3.0" level="project" />
     <orderEntry type="library" name="fontbox-3.0.0-RC1" level="project" />
     <orderEntry type="library" name="commons-javaflow" level="project" />
+    <orderEntry type="library" name="javafx-swt" level="project" />
   </component>
 </module>

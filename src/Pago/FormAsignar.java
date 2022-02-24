@@ -2,11 +2,6 @@ package Pago;
 
 import ClassAux.Formato;
 import ClassAux.Util;
-import Corte.DAO.Corte;
-import Empleado.ControllerEmpleado;
-import Empleado.FormEmpleado;
-import Empleado.EmpleadoCell;
-import Empleado.RowEmpleado;
 import Empleado.DAO.DataEmpleado;
 import Empleado.DAO.Empleado;
 import Operacion.DAO.DataOperacion;
@@ -14,32 +9,24 @@ import Operacion.DAO.Operacion;
 import Operacion.Delantera.DelanteraCotrolller;
 import Operacion.Estilo.DAO.Estilo;
 import Operacion.Estilo.DAO.EstiloData;
-import Operacion.Estilo.EstiloController;
 import Pago.DAO.DataDetallePago;
 import Pago.DAO.DetallePago;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.temporal.TemporalAccessor;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FormAsignar implements Initializable {
@@ -272,14 +259,14 @@ return operacion;
             stage.setScene(new Scene(parent));
             DelanteraCotrolller delanteraCotrolller = fxmlLoader.getController();
             delanteraCotrolller.pasarEstilo(estiloSeleccionado,nombretipo);
-            delanteraCotrolller.listDelanteras.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            delanteraCotrolller.tblDelanteras.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getClickCount()==1 && event.getButton()==MouseButton.PRIMARY){
-                        Operacion operacion=delanteraCotrolller.listDelanteras.getSelectionModel().getSelectedItem();
+                        Operacion operacion=delanteraCotrolller.tblDelanteras.getSelectionModel().getSelectedItem();
                         llenarOperacion(operacion);
                         llenarPrecio(operacion.getPrecio(),operacion.getVariacion());
-                        Stage cerrar=(Stage)delanteraCotrolller.listDelanteras.getScene().getWindow();
+                        Stage cerrar=(Stage)delanteraCotrolller.tblDelanteras.getScene().getWindow();
                         cerrar.close();
 
                     }

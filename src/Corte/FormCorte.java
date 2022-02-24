@@ -280,17 +280,18 @@ public void calcularCantidad(){
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             EstiloController controller=fxmlLoader.getController();
-            controller.listViewEstilo.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            controller.tblEstilo.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    if (event.getClickCount()==1 && event.getButton()== MouseButton.PRIMARY){
-                        Estilo estilo=controller.listViewEstilo.getSelectionModel().getSelectedItem();
+                    if (event.getClickCount()==2 && event.getButton()==MouseButton.PRIMARY){
+                        Estilo estilo=controller.tblEstilo.getSelectionModel().getSelectedItem();
                         llenarEstilo(estilo);
-                        Stage stage1=(Stage)controller.listViewEstilo.getScene().getWindow();
+                        Stage stage1=(Stage) controller.tblEstilo.getScene().getWindow();
                         stage1.close();
                     }
                 }
             });
+
 
             stage.show();
         }catch (IOException e){
@@ -318,13 +319,12 @@ public void calcularCantidad(){
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
             BodegaController controller =fxmlLoader.getController();
-            controller.listBodega.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            controller.tblBodega.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    if (event.getClickCount()==1 && event.getButton()==MouseButton.PRIMARY){
-                        Bodega bodega=controller.listBodega.getSelectionModel().getSelectedItem();
+                    if (event.getClickCount()==2 && event.getButton()==MouseButton.PRIMARY){
+                        Bodega bodega=controller.tblBodega.getSelectionModel().getSelectedItem();
                         if (listTela==null){
                             llenarTabla(devolverBodega(bodega));
                             calcularCantidad();
@@ -334,9 +334,10 @@ public void calcularCantidad(){
                             calcularCantidad();
                             tblTela.refresh();
                         }
+                        Stage cerrar=(Stage)controller.tblBodega.getScene().getWindow();
+                        cerrar.close();
                     }
-                    Stage cerrar=(Stage)controller.listBodega.getScene().getWindow();
-                    cerrar.close();
+
                 }
             });
 

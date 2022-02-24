@@ -11,8 +11,8 @@ public class Conexion {
             String server="localhost:3306";
             String db="maya_textil";
             String user="root";
-            String pass="49390508";
-            //String pass="root12345";
+            //String pass="49390508";
+            String pass="root12345";
             String horario="useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             String Sll="&useSSL=false&allowPublicKeyRetrieval=true";
             String conexionstr=String.format("jdbc:mysql://%s/%s?%s%s",server,db,horario,Sll);

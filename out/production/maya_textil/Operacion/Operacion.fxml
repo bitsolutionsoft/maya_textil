@@ -18,10 +18,10 @@
    <children>
       <BorderPane fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="1300.0" GridPane.rowIndex="3">
          <left>
-            <VBox prefHeight="200.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
+
          </left>
          <right>
-            <VBox prefHeight="200.0" prefWidth="116.0" BorderPane.alignment="CENTER" />
+
          </right></BorderPane>
       <Label id="titulo" text="Control de operaciones" GridPane.halignment="CENTER" />
       <GridPane GridPane.rowIndex="1">

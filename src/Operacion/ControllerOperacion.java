@@ -67,13 +67,13 @@ public class ControllerOperacion  implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             EstiloController controller=fxmlLoader.getController();
-            controller.listViewEstilo.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            controller.tblEstilo.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     if (event.getClickCount()==2 && event.getButton()== MouseButton.PRIMARY){
-                        Estilo estilo=controller.listViewEstilo.getSelectionModel().getSelectedItem();
+                        Estilo estilo=controller.tblEstilo.getSelectionModel().getSelectedItem();
                         llenarEstilo(estilo);
-                        Stage stage1=(Stage)controller.listViewEstilo.getScene().getWindow();
+                        Stage stage1=(Stage)controller.tblEstilo.getScene().getWindow();
                         stage1.close();
                     }
                 }

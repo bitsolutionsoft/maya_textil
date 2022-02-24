@@ -68,7 +68,7 @@
 -fx-font-weight:bold;
 }
 #btnUsuario{
--fx-background-color:"#5DC460";
+-fx-background-color:#9679DA;
 -fx-background-radius: 10px;
 -fx-text-fill:white;
 -fx-font-size: 18px;
@@ -78,7 +78,7 @@
 -fx-background-color: "#282C8C";
 }
 .label{
--fx-text-fill: "#282C8C";
--fx-font-size: 14px;
+-fx-text-fill: #282C8C;
+-fx-font-size: 17px;
 -fx-font-weight:bold;
 }

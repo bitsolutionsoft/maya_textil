@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="fondo" prefHeight="555.0" prefWidth="632.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.ListCorte.ListCorte">
+<GridPane id="fondo" prefHeight="555.0" prefWidth="950.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.ListCorte.ListCorte">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
     </columnConstraints>
@@ -23,7 +23,7 @@
                 <RowConstraints maxHeight="493.0" minHeight="10.0" prefHeight="441.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ListView id="listView" fx:id="listCorte" prefHeight="449.0" prefWidth="683.0" GridPane.rowIndex="1" />
+                <TableView id="listView" fx:id="tblCorte" prefHeight="449.0" prefWidth="683.0" GridPane.rowIndex="1" />
                 <GridPane hgap="10.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="720.0" minWidth="10.0" prefWidth="402.0" />

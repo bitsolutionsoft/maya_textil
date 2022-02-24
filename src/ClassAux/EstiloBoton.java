@@ -4,7 +4,9 @@ package ClassAux;
 
 public class EstiloBoton {
 
-
+    public  static int sizeButton(){
+    return 25;
+    }
     public static String Boton() {
         String boton = "" +
                 "-fx-background-color:#edebe9;" +
@@ -30,7 +32,19 @@ public class EstiloBoton {
                 "-fx-text-fill:#ffffff;";
         return Noactivo;
     }
+    public static String Activo1() {
+        String Activo = "" +
+                "-fx-text-fill:#30CF9D;" +
+                "-fx-font-weight:bold;";
+        return Activo;
+    }
 
+    public static String NoActivo1() {
+        String Noactivo = ""+
+                "-fx-text-fill:#D12E33; " +
+                "-fx-font-weight:bold;";
+        return Noactivo;
+    }
     public static   String deleteImg () {
         String deleteImg="/Img/delete.png";
         return deleteImg;
@@ -43,8 +57,23 @@ public class EstiloBoton {
         String accessImg="/Img/access.png";
         return accessImg;
     }
+    public static   String Cancelado () {
+        String accessImg="/Img/check.png";
+        return accessImg;
+    }
+    public static   String Imprimir () {
+        String accessImg="/Img/print.png";
+        return accessImg;
 
 
+    }
+
+    public static   String Open () {
+        String accessImg="/Img/open.png";
+        return accessImg;
+
+
+    }
 
 
 /*

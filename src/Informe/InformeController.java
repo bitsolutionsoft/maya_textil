@@ -64,14 +64,15 @@ public class InformeController implements Initializable {
     SizeColumnTable size_tabla=new SizeColumnTable();
     ObservableList<ResumenCorte> listPagos=null;
     FilteredList<ResumenCorte> filterPago;
-    public ListView <Bodega> listBodega;
+
     static ObservableList<Bodega> bodega;
     static FilteredList<Bodega> fileterBodega;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         iniciarTabla();
         accionRadioButtons();
-        initList(listBodega);
+
+
         llenarLista();
 
         tblCorte.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -219,13 +220,7 @@ public class InformeController implements Initializable {
         if (!list.isEmpty()){
             llenarTabla(list);
         }
-        /*
-        ArrayList<Cuenta> datosCueta=new ArrayList<>(dataVentas.viewCuenta(ventas,gaccion));
-        if (!datosCueta.isEmpty()){
-            lblVentas.setText("Q "+datosCueta.get(0).getVentas());
-            lblCompras.setText("Q "+datosCueta.get(0).getInversion());
-            lblGanancia.setText("Q "+datosCueta.get(0).getGanancia());
-        }*/
+
     }
     public String returnFechaSelect(DatePicker txt, String nombre){
 
@@ -239,19 +234,6 @@ public class InformeController implements Initializable {
     }
 
 
-    public  void initList(ListView<Bodega> listView){
-        DataBodega datos=new DataBodega();
-        bodega= FXCollections.observableArrayList(datos.viewBodega(new Bodega(), "viewall"));
-        fileterBodega=new FilteredList<>(bodega, s->true);
-        listView.setItems(fileterBodega);
-        listView.setCellFactory(new Callback<ListView<Bodega>, ListCell<Bodega>>() {
-            @Override
-            public ListCell<Bodega> call(ListView<Bodega> bodegaListView) {
-                CellBodega cellBodega=new CellBodega();
-                return cellBodega;
-            }
-        });
-    }
     public void llenarLista(){
         txtBuscar.textProperty().addListener((prop,old,text) ->{
             fileterBodega.setPredicate(bodega -> {
@@ -273,27 +255,10 @@ public class InformeController implements Initializable {
         });
     }
 
-    public void nuevoIngreso(ActionEvent actionEvent) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/Bodega/FormBodega.fxml"));
-            Stage stage=new Stage();
-            stage.setScene(new Scene(parent));
-            stage.show();
-            stage.getIcons().add(new Image("/img/icon.png"));
-            stage.setOnHiding((event ->{
-                initList(listBodega);
-                listBodega.refresh();
-            }));
-
-
-        }catch (IOException e){
-            e.printStackTrace();
-
-        }
 
 
 
-    }
+
     public void llenarInformeCorte(Cortes c,String accion){
         DataInformeCorte data=new DataInformeCorte();
         ObservableList<InformeCorte> corte=FXCollections.observableArrayList(data.viewCortes(c,accion));
