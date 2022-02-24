@@ -77,7 +77,7 @@ public class Historial implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         iniciarTabla();
-
+filtrar();
 
        cbxEmpleado.setOnAction(new EventHandler<ActionEvent>() {
            @Override
@@ -150,12 +150,7 @@ public class Historial implements Initializable {
     public void pasarRegistro(ObservableList<Empleado> empleado) {
         ObservableList empleados=FXCollections.observableArrayList(empleado);
         cbxEmpleado.setItems(empleados);
-      //  if (empleado != null) {
-          //  labelTitulo.setText(String.valueOf(empleado.getNombre()+" "+empleado.getApellido()));
-        //    Seleccionado=empleado;
-           // llenarCancelado(listPago,Seleccionado);
-           // llenarAdelanto(listCancelado,Seleccionad);
-       // }
+
     }
     public  void llenarCancelado(Empleado empleado){
 
@@ -163,15 +158,6 @@ public class Historial implements Initializable {
         listdatellePago = FXCollections.observableArrayList(datos.viewDetallePagoXEmp(new DetallePago(0,0,empleado.getCodigo(),0,0,0,0,0,"Cancelado"),"viewxemp"));
         filterDetallePago=new FilteredList<DetallePago>(listdatellePago,s->true);
         tblPago.setItems(filterDetallePago);
-/*        listView.setItems(filterDetallePago);
-        listView.setCellFactory(new Callback<ListView<DetallePago>, ListCell<DetallePago>>() {
-            @Override
-            public ListCell<DetallePago> call(ListView<DetallePago> listView) {
-                CellCancelado cellCancelado=new CellCancelado();
-                return  cellCancelado;
-            }
-        });
-*/
     }
 
 
@@ -179,60 +165,28 @@ public class Historial implements Initializable {
         DataAdelanto datos=new DataAdelanto();
         listdatelleAdelanto = FXCollections.observableArrayList(datos.viewAdelanto(new Adelanto(0,empleado.getCodigo(),0,"","Cancelado"),"viewxemp"));
         filterDetalleAdelanto=new FilteredList<Adelanto>(listdatelleAdelanto,s->true);
-        tblAdelanto.setItems(filterDetalleAdelanto);/*
-        listView.setItems(filterDetalleAdelanto);
-        listView.setCellFactory(new Callback<ListView<Adelanto>, ListCell<Adelanto>>() {
-            @Override
-            public ListCell<Adelanto> call(ListView<Adelanto> listView) {
-                CellACancelado cellAcancelado=new CellACancelado();
-                return  cellAcancelado;
-            }
-        });
-*/
-    }
-
-    public void imprimirVoucher(ObservableList<DetallePago> list, float operacion, float descuentos, float totals) {
-       Empleado empleadoSeleccionado=cbxEmpleado.getSelectionModel().getSelectedItem();
-        String empleado=  empleadoSeleccionado.getNombre()+ " "+empleadoSeleccionado.getApellido();
-        ConstanciaPago constanciaPago=new ConstanciaPago();
-        ObservableList<ConstanciaPago> lista=FXCollections.observableArrayList(constanciaPago.datos(list));
-        if (!list.isEmpty()) {
-            ImprimirVale imprimirVale = new ImprimirVale();
-            imprimirVale.Constancia(lista, operacion, descuentos, totals, empleado, true);
-        }
+        tblAdelanto.setItems(filterDetalleAdelanto);
     }
 
 
-    public void ReimprimirConstancia(DetallePago dt) {
-        float operacion=0;
-        float descuento=0;
-        float total=0;
-        ObservableList<DetallePago> lista=FXCollections.observableArrayList();
-        if (listdatellePago!=null){
-            for (int i=0;i<listdatellePago.size();i++){
-                if (listdatellePago.get(i).getFecha().equals(dt.getFecha())) {
-                    DetallePago detalle = new DetallePago();
-                    detalle.setIddetalle( listdatellePago.get(i).getIddetalle());
-                    detalle.setIdpago(listdatellePago.get(i).getIdpago());
-                    detalle.setNombre(listdatellePago.get(i).getNombre());
-                    detalle.setIdempleado(listdatellePago.get(i).getIdempleado());
-                    detalle.setIdoperacion(listdatellePago.get(i).getIdoperacion());
-                    detalle.setCantidad(listdatellePago.get(i).getCantidad());
-                    detalle.setPrecio(listdatellePago.get(i).getPrecio());
-                    detalle.setDescuento(listdatellePago.get(i).getDescuento());
-                    detalle.setTotal(listdatellePago.get(i).getTotal());
-                    detalle.setEstado(listdatellePago.get(i).getEstado());
-                    descuento=descuento+listdatellePago.get(i).getDescuento();
-                    total=total+(listdatellePago.get(i).getTotal()-listdatellePago.get(i).getDescuento());
-                    operacion=operacion+listdatellePago.get(i).getTotal();
-                    lista.addAll(detalle);
+    public  void filtrar(){
+        txtBuscar.textProperty().addListener((prop,old,text) ->{
+            filterDetallePago.setPredicate(boleta ->{
+                if (text==null || text.isEmpty()){
+                    return  true;
                 }
-            }
-            imprimirVoucher(lista, operacion,descuento,total);
+                String texto=text.toLowerCase();
+                if(boleta.getNombre().contains(texto)){
+                    return true;
+                }
+                else  if(boleta.getIdcorte().contains(texto)){
+                    return true;
+                }
 
 
-        }
-
+                return false;
+            });
+        });
     }
 
 }

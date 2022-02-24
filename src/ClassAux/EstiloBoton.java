@@ -75,7 +75,12 @@ public class EstiloBoton {
 
     }
 
+    public static   String AddTask () {
+        String accessImg="/Img/add.png";
+        return accessImg;
 
+
+    }
 /*
     //estilo de los estados
     public   String Activo="" +

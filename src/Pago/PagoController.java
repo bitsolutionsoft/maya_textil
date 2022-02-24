@@ -69,6 +69,7 @@ public class PagoController implements Initializable {
     public TableView<Empleado> tblEmpleado;
     public TableColumn<Empleado,String> cellNombre;
     public TableColumn<Empleado,String> cellApellido;
+    public TableColumn<Empleado,String> cellOpEmpleado;
 
     public TableView<DetallePago> tblPago;
     public TableColumn<DetallePago,String>cellOperacion;
@@ -205,39 +206,51 @@ public class PagoController implements Initializable {
     public void initTableEmpleado(){
         cellNombre=new TableColumn<>("Nombre");
         cellApellido=new TableColumn<>("Apellido");
+        cellOpEmpleado=new TableColumn<>("Asignar Tarea");
+
         cellNombre.setCellValueFactory(new PropertyValueFactory<Empleado,String>("nombre"));
         cellApellido.setCellValueFactory(new PropertyValueFactory<Empleado,String>("apellido"));
+        cellOpEmpleado.setCellFactory(new Callback<TableColumn<Empleado, String>, TableCell<Empleado, String>>() {
+            @Override
+            public TableCell<Empleado, String> call(TableColumn<Empleado, String> empleadoStringTableColumn) {
+                return new TableCell<Empleado, String>(){
+                    @Override
+                            public void updateItem(String item, boolean empty){
+                        super.updateItem(item,empty);
+                        if (!empty){
+                            ImageView addTask=new ImageView(estiloBoton.AddTask());
+                            addTask.setFitWidth(estiloBoton.sizeButton());
+                            addTask.setFitHeight(estiloBoton.sizeButton());
+                            addTask.setStyle(" -fx-background-color: yellow;");
+                            addTask.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent event) {
+                                    if (event.getClickCount()==1 && event.getButton()==MouseButton.PRIMARY){
+                                        empleadoSeleccionado=tblEmpleado.getSelectionModel().getSelectedItem();
+                                       agregarTarea(empleadoSeleccionado);
+                                    }
+                                }
+                            });
+                            HBox contain=new HBox(addTask);
+                            contain.setStyle(" -fx-alignment: center;");
+                            HBox.setMargin(addTask,new Insets(1,1,1,1));
+                            setGraphic(contain);
+                        }else {
+                            setGraphic(null);
+                        }
+                    }
+                };
+            }
+        });
         Platform.runLater(()-> sizeColumnTable.ajustarColumna(tblEmpleado));
-        tblEmpleado.getColumns().addAll(cellNombre,cellApellido);
+        tblEmpleado.getColumns().addAll(cellNombre,cellApellido,cellOpEmpleado);
 
         tblEmpleado.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount()==2 && event.getButton()==MouseButton.PRIMARY){
                     empleadoSeleccionado=tblEmpleado.getSelectionModel().getSelectedItem();
-                    if (estiloSeleccinado!=null && tipoSeleccionado!=0){
-                        try {
-                            FXMLLoader loader=new FXMLLoader(getClass().getResource("/Pago/FormAsignar.fxml"));
-                            Parent parent = loader.load();
-                            Stage stage=new Stage();
-                            stage.setScene(new Scene(parent));
-                            stage.show();
-                            stage.getIcons().add(new Image("/Img/icon.png"));
-                            FormAsignar formEmpleado = loader.getController();
-                            formEmpleado.pasarRegistro(empleadoSeleccionado,estiloSeleccinado,codigoPago,tipoSeleccionado,tipoNSeleccionado);
-                            stage.setOnHiding((event1) ->{
-                                llenarTarea(empleadoSeleccionado);
-                                llenarAdelanto(empleadoSeleccionado);
-                                totalAPagar();
-                            });
-                        }catch (IOException e){
-                            e.printStackTrace();
-
-                        }}
-                    else{
-                        AlertDialog alertDialog=new AlertDialog();
-                        alertDialog.alert("Aviso","Para asignar tarea, primero debe seleccionar el corte y el tipo de operación, en la parte superior. ");
-                    }
+                  agregarTarea(empleadoSeleccionado);
                 }
                 if (event.getClickCount()==1 && event.getButton()==MouseButton.PRIMARY){
                     empleadoSeleccionado =tblEmpleado.getSelectionModel().getSelectedItem();
@@ -247,6 +260,34 @@ public class PagoController implements Initializable {
                 }
             }
         });
+    }
+
+    public  void agregarTarea(Empleado empleado){
+
+            if (estiloSeleccinado!=null && tipoSeleccionado!=0){
+                try {
+                    FXMLLoader loader=new FXMLLoader(getClass().getResource("/Pago/FormAsignar.fxml"));
+                    Parent parent = loader.load();
+                    Stage stage=new Stage();
+                    stage.setScene(new Scene(parent));
+                    stage.show();
+                    stage.getIcons().add(new Image("/Img/icon.png"));
+                    FormAsignar formEmpleado = loader.getController();
+                    formEmpleado.pasarRegistro(empleadoSeleccionado,estiloSeleccinado,codigoPago,tipoSeleccionado,tipoNSeleccionado);
+                    stage.setOnHiding((event1) ->{
+                        llenarTarea(empleadoSeleccionado);
+                        llenarAdelanto(empleadoSeleccionado);
+                        totalAPagar();
+                    });
+                }catch (IOException e){
+                    e.printStackTrace();
+
+                }}
+            else{
+                AlertDialog alertDialog=new AlertDialog();
+                alertDialog.alert("Aviso","Para asignar tarea, primero debe seleccionar el corte y el tipo de operación, en la parte superior. ");
+            }
+
     }
     public  void initTablePago(){
         cellOperacion=new TableColumn<>("Operación");
