@@ -88,7 +88,7 @@ public class PagoController implements Initializable {
     public  TableColumn<Adelanto,String>cellEstadoAdelanto;
     public Button btnIngresarTarea;
     public Label lblEmpleado;
-    public ImageView btnSelectEmpleado;
+    public Button btnSelectEmpleado;
 
     private Empleado empleadoSeleccionado;
     public Label lblidcorte;
@@ -203,8 +203,7 @@ public class PagoController implements Initializable {
             }
         });
 
-        //btnSelectEmpleado=new ImageView(EstiloBoton.DropDown());
-        btnSelectEmpleado.setImage(new Image(estiloBoton.DropDown()));
+
         btnSelectEmpleado.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <GridPane id="fondo" prefHeight="768.0" prefWidth="1200.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pago.PagoController">
@@ -21,8 +20,8 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <children>
              <Label text="Nombre de Empleado:" />
-             <Label fx:id="lblEmpleado" prefWidth="350.0" text="Seleccionar empleado" />
-            <ImageView fx:id="btnSelectEmpleado" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+             <Label fx:id="lblEmpleado" prefHeight="18.0" prefWidth="301.0" text="Seleccionar empleado" />
+            <Button id="btnPrimario" fx:id="btnSelectEmpleado" mnemonicParsing="false" prefHeight="26.0" prefWidth="209.0" text="Seleccionar Empleado" />
             <Button id="btnPrimario" fx:id="btnIngresarTarea" mnemonicParsing="false" onAction="#AbrirAdelanto" prefHeight="26.0" prefWidth="150.0" text="Asignar Tarea" />
              <Button id="btnSecundario" fx:id="btnAdelanto" mnemonicParsing="false" onAction="#AbrirAdelanto" prefHeight="26.0" prefWidth="150.0" text="Adelanto" />
              <Button id="btnSecundario" fx:id="btnHistorial" mnemonicParsing="false" onAction="#AbrirHistorial" prefHeight="26.0" prefWidth="190.0" text="Historial de pago" />
