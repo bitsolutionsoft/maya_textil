@@ -59,7 +59,8 @@ public class Historial implements Initializable {
     public TableColumn<DetallePago,String> cellprecio;
     public TableColumn<DetallePago,String> cellEstado;
     public TableColumn<DetallePago,String> cellTotal;
-
+    static ObservableList<Empleado> empleados;
+    static FilteredList<Empleado> empleadodata;
     public TableView<Adelanto> tblAdelanto;
     public TableColumn<Adelanto,String> cellIdelanto;
     public TableColumn<Adelanto,String> cellAempleado;
@@ -78,7 +79,7 @@ public class Historial implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         iniciarTabla();
 filtrar();
-
+pasarRegistro();
        cbxEmpleado.setOnAction(new EventHandler<ActionEvent>() {
            @Override
            public void handle(ActionEvent actionEvent) {
@@ -147,8 +148,9 @@ filtrar();
         Platform.runLater(()-> size_tabla.ajustarColumna(tblAdelanto));
     }
 
-    public void pasarRegistro(ObservableList<Empleado> empleado) {
-        ObservableList empleados=FXCollections.observableArrayList(empleado);
+    public void pasarRegistro() {
+        DataEmpleado datos=new DataEmpleado();
+        empleados = FXCollections.observableArrayList(datos.viewEmpleado(new Empleado(0,"","","",0,""),"viewact"));
         cbxEmpleado.setItems(empleados);
 
     }

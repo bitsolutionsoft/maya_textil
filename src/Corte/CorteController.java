@@ -222,18 +222,7 @@ initTablaTela();
         cortes = FXCollections.observableArrayList(datos.viewCorte("viewall"));
         cortedata=new FilteredList<Corte>(cortes,s->true);
         tblCorte.setItems(cortedata);
-        /*
-        listView.setItems(cortedata);
-        //para llenar las filas personalizadas
 
-        listView.setCellFactory(new Callback<ListView<Corte>, ListCell<Corte>>() {
-            @Override
-            public ListCell<Corte> call(ListView<Corte> param) {
-                CorteCell corteCell=new CorteCell();
-                return corteCell;
-            }
-        });
-*/
     }
 
     public void llenarListaCorte(){
@@ -258,16 +247,7 @@ initTablaTela();
         listTela = FXCollections.observableArrayList(datos.viewTela(new Rollos(0,corte.getIdcorte(),0,0),"viewxcorte"));
         filterListTela=new FilteredList<Rollos>(listTela,s->true);
         tblTela.setItems(filterListTela);
-      /*  listView.setItems(filterListTela);
-        //para llenar las filas personalizadas
 
-        listView.setCellFactory(new Callback<ListView<Rollos>, ListCell<Rollos>>() {
-            @Override
-            public ListCell<Rollos> call(ListView<Rollos> param) {
-                CellTela cellTela=new CellTela();
-                return cellTela;
-            }
-        });*/
 
     }
 

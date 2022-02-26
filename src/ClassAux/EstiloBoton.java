@@ -64,22 +64,20 @@ public class EstiloBoton {
     public static   String Imprimir () {
         String accessImg="/Img/print.png";
         return accessImg;
-
-
     }
 
     public static   String Open () {
         String accessImg="/Img/open.png";
         return accessImg;
-
-
     }
 
     public static   String AddTask () {
         String accessImg="/Img/add.png";
         return accessImg;
-
-
+    }
+    public static   String DropDown () {
+        String accessImg="/Img/down.png";
+        return accessImg;
     }
 /*
     //estilo de los estados

@@ -6,6 +6,7 @@ import ClassAux.SizeColumnTable;
 import Corte.DAO.Corte;
 import Empleado.DAO.DataEmpleado;
 import Empleado.DAO.Empleado;
+import Empleado.ControllerEmpleado;
 import Operacion.DAO.Operacion;
 import Operacion.Estilo.DAO.Estilo;
 import Corte.CorteController;
@@ -85,6 +86,9 @@ public class PagoController implements Initializable {
     public TableColumn<Adelanto,String>cellCantAdelanto;
     public TableColumn<Adelanto,String>cellOpAdelanto;
     public  TableColumn<Adelanto,String>cellEstadoAdelanto;
+    public Button btnIngresarTarea;
+    public Label lblEmpleado;
+    public ImageView btnSelectEmpleado;
 
     private Empleado empleadoSeleccionado;
     public Label lblidcorte;
@@ -92,9 +96,7 @@ public class PagoController implements Initializable {
     public RadioButton rDelantera;
     public RadioButton rTrasera;
     public RadioButton rEmsamble;
-    public ListView<DetallePago> listViewPago;
-    public ListView<Empleado> listEmpleado;
-    public ListView<Adelanto> listViewAdelanto;
+
 
     EstiloBoton estiloBoton=new EstiloBoton();
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
@@ -103,12 +105,11 @@ public class PagoController implements Initializable {
     private  boolean imprimir=false;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // btnIngresarNuevo.setVisible(false);
-        initTableEmpleado();
+
         initTablePago();
         initTableAdelanto();
+        filtarPago();
         totalAPagar();
-        initLista();
         lblDescuento.setText("0.0");
 
         rDelantera.setOnAction(new EventHandler<ActionEvent>() {
@@ -201,66 +202,53 @@ public class PagoController implements Initializable {
                 }
             }
         });
-    }
 
-    public void initTableEmpleado(){
-        cellNombre=new TableColumn<>("Nombre");
-        cellApellido=new TableColumn<>("Apellido");
-        cellOpEmpleado=new TableColumn<>("Asignar Tarea");
-
-        cellNombre.setCellValueFactory(new PropertyValueFactory<Empleado,String>("nombre"));
-        cellApellido.setCellValueFactory(new PropertyValueFactory<Empleado,String>("apellido"));
-        cellOpEmpleado.setCellFactory(new Callback<TableColumn<Empleado, String>, TableCell<Empleado, String>>() {
-            @Override
-            public TableCell<Empleado, String> call(TableColumn<Empleado, String> empleadoStringTableColumn) {
-                return new TableCell<Empleado, String>(){
-                    @Override
-                            public void updateItem(String item, boolean empty){
-                        super.updateItem(item,empty);
-                        if (!empty){
-                            ImageView addTask=new ImageView(estiloBoton.AddTask());
-                            addTask.setFitWidth(estiloBoton.sizeButton());
-                            addTask.setFitHeight(estiloBoton.sizeButton());
-                            addTask.setStyle(" -fx-background-color: yellow;");
-                            addTask.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent event) {
-                                    if (event.getClickCount()==1 && event.getButton()==MouseButton.PRIMARY){
-                                        empleadoSeleccionado=tblEmpleado.getSelectionModel().getSelectedItem();
-                                       agregarTarea(empleadoSeleccionado);
-                                    }
-                                }
-                            });
-                            HBox contain=new HBox(addTask);
-                            contain.setStyle(" -fx-alignment: center;");
-                            HBox.setMargin(addTask,new Insets(1,1,1,1));
-                            setGraphic(contain);
-                        }else {
-                            setGraphic(null);
-                        }
-                    }
-                };
-            }
-        });
-        Platform.runLater(()-> sizeColumnTable.ajustarColumna(tblEmpleado));
-        tblEmpleado.getColumns().addAll(cellNombre,cellApellido,cellOpEmpleado);
-
-        tblEmpleado.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        //btnSelectEmpleado=new ImageView(EstiloBoton.DropDown());
+        btnSelectEmpleado.setImage(new Image(estiloBoton.DropDown()));
+        btnSelectEmpleado.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (event.getClickCount()==2 && event.getButton()==MouseButton.PRIMARY){
-                    empleadoSeleccionado=tblEmpleado.getSelectionModel().getSelectedItem();
-                  agregarTarea(empleadoSeleccionado);
-                }
-                if (event.getClickCount()==1 && event.getButton()==MouseButton.PRIMARY){
-                    empleadoSeleccionado =tblEmpleado.getSelectionModel().getSelectedItem();
-                    totalAPagar();
-                    llenarTarea(empleadoSeleccionado);
-                    llenarAdelanto(empleadoSeleccionado);
-                }
+                SeleccionarEmpleado();
+            }
+        });
+
+        btnIngresarTarea.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                agregarTarea(empleadoSeleccionado);
             }
         });
     }
+
+   public  void SeleccionarEmpleado(){
+        try {
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("/Empleado/Empleado.fxml"));
+            Parent parent=loader.load();
+            Stage stage=new Stage();
+            stage.setTitle("Empleado");
+            stage.setScene(new Scene(parent));
+            ControllerEmpleado controller=loader.getController();
+
+            controller.tblEmpleado.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getClickCount()==2 && event.getButton()==MouseButton.PRIMARY){
+                        empleadoSeleccionado =controller.tblEmpleado.getSelectionModel().getSelectedItem();
+                        lblEmpleado.setText(empleadoSeleccionado.getNombre()+" "+empleadoSeleccionado.getApellido());
+                        totalAPagar();
+                        llenarTarea(empleadoSeleccionado);
+                        llenarAdelanto(empleadoSeleccionado);
+                        Stage cerrar=(Stage) controller.tblEmpleado.getScene().getWindow();
+                        cerrar.close();
+                    }
+
+                }
+            });
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+   }
 
     public  void agregarTarea(Empleado empleado){
 
@@ -549,29 +537,20 @@ public class PagoController implements Initializable {
         });
     }
 
-    public void initLista(){
-        DataEmpleado datos=new DataEmpleado();
-        empleados = FXCollections.observableArrayList(datos.viewEmpleado(new Empleado(0,"","","",0,""),"viewact"));
-        empleadodata=new FilteredList<Empleado>(empleados,s->true);
-        tblEmpleado.setItems(empleadodata);
-
-    }
-
-
-    public void llenarListaEmpleado(){
+    public void filtarPago(){
         txtBuscar.textProperty().addListener((prop,old,text) ->{
-            empleadodata.setPredicate(empleado ->{
+            filterDetallePago.setPredicate(empleado ->{
                 if (text==null || text.isEmpty()){
                     return  true;
                 }
                 String texto=text.toLowerCase();
-                if(String.valueOf(empleado.getCodigo()).toLowerCase().contains(texto)){
+                if(String.valueOf(empleado.getIdcorte()).toLowerCase().contains(texto)){
                     return true;
                 }
                 else if(empleado.getNombre().toLowerCase().contains(texto)){
                     return true;
                 }
-                else if(empleado.getApellido().toLowerCase().contains(texto)){
+                else if(empleado.getFecha().toLowerCase().contains(texto)){
                     return true;
                 }
 
@@ -579,6 +558,8 @@ public class PagoController implements Initializable {
             });
         });
     }
+
+
 
     public  void llenarTarea(Empleado empleado) {
 
@@ -775,33 +756,19 @@ totalAPagar();
     public void AbrirHistorial(ActionEvent actionEvent) {
 
             try {
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Pago/Historial.fxml"));
                 Parent parent = loader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(parent));
                 stage.getIcons().add(new Image("/Img/icon.png"));
-
-                Historial historial = loader.getController();
-                historial.pasarRegistro(empleados);
-                stage.setOnHiding((event ->{
-                  //  initLista(listEmpleado);
-                   // listEmpleado.refresh();
-                }));
                 stage.show();
 
             }catch (IOException e){
                 e.printStackTrace();
-
-
             }
-
-
-
 
     }
     private void totalAPagar(){
-        llenarListaEmpleado();
         DataAdelanto dataAdelanto=new DataAdelanto();
         float totalpago=0;
         totalpago=dataAdelanto.totalPago();
@@ -877,21 +844,7 @@ totalAPagar();
 
         }
     }
-    public Node estadoIcon(String estado){
-        HBox containBoton=new HBox();
-        if (estado.equals("Cancelado")){
-            ImageView editButton=new ImageView(estiloBoton.Cancelado());
-            editButton.setFitHeight(estiloBoton.sizeButton());
-            editButton.setFitWidth(estiloBoton.sizeButton());
-            editButton.setStyle(estiloBoton.Boton());
-            containBoton.getChildren().add(editButton);
-            containBoton.setStyle("-fx-alignment:center");
-            HBox.setMargin(editButton,new Insets(2,2,2,10));
 
-        }
-        return containBoton;
-
-    }
 }
 
 

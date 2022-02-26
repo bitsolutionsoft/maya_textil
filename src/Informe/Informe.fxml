@@ -4,9 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane id="fondo" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Informe.InformeController">
+<ScrollPane id="fondo" prefHeight="1082.0" prefWidth="1365.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Informe.InformeController">
    <content>
-      <VBox id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1577.0">
+      <VBox id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1358.0">
          <children>
             <Label prefHeight="17.0" prefWidth="206.0" text="Informe  general">
                <VBox.margin>
