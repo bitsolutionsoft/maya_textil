@@ -1,14 +1,13 @@
 package Corte;
 
 import ClassAux.AlertDialog;
-import ClassAux.EstiloBoton;
+import ClassAux.SetBotonIcon;
 import ClassAux.SizeColumnTable;
 import Corte.DAO.Corte;
 import Corte.DAO.DataCorte;
 import Corte.DAO.DataRollos;
 import Corte.DAO.Rollos;
 import Corte.Pdf.imprimir;
-import Empleado.DAO.Empleado;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +22,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -59,7 +57,8 @@ public class CorteController implements Initializable {
     public TableColumn<Rollos, String> cellColor;
     public TableColumn<Rollos, String> cellCantTela;
     public TableColumn<Rollos, String> cellOpcionesTela;
-    EstiloBoton estiloBoton=new EstiloBoton();
+    //EstiloBoton estiloBoton=new EstiloBoton();
+    SetBotonIcon setBotonIcon=new SetBotonIcon();
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
     AlertDialog alertDialog=new AlertDialog();
     @Override
@@ -87,41 +86,42 @@ initTablaTela();
         cellEstado.setCellValueFactory(new PropertyValueFactory<Corte,String>("estado"));
 
         Callback<TableColumn<Corte,String>, TableCell<Corte,String>> cellFactory= (TableColumn<Corte,String> param) ->{
+
           final TableCell<Corte,String> cell=new TableCell<>() {
               @Override
               public void updateItem(String item, boolean empty) {
                   if (empty) {
                       setGraphic(null);
                   } else {
-                      ImageView editButon = new ImageView(estiloBoton.editImg());
-                      editButon.setFitHeight(estiloBoton.sizeButton());
-                      editButon.setFitWidth(estiloBoton.sizeButton());
-                      editButon.setStyle(estiloBoton.Boton());
+
+                      Button btnEditar=new Button();
+                      btnEditar.setGraphic(setBotonIcon.ImgUpdate());
+                      btnEditar.setStyle(setBotonIcon.ButtonStyle());
+                      Button btnEliminar=new Button();
+                      btnEliminar.setGraphic(setBotonIcon.ImgDelete());
+                      btnEliminar.setStyle(setBotonIcon.ButtonStyle());
 
 
-                      ImageView deleteButon = new ImageView(estiloBoton.deleteImg());
-                      deleteButon.setFitHeight(estiloBoton.sizeButton());
-                      deleteButon.setFitWidth(estiloBoton.sizeButton());
-                      deleteButon.setStyle(estiloBoton.Boton());
 
-                      editButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                      btnEditar.setOnAction(new EventHandler<ActionEvent>() {
                           @Override
-                          public void handle(MouseEvent mouseEvent) {
-                              Corte corte=tblCorte.getSelectionModel().getSelectedItem();
-                              EditarCorte(corte);
+                          public void handle(ActionEvent actionEvent) {
+                              Corte corte=getTableView().getItems().get(getIndex());
+                             EditarCorte(corte);
                           }
                       });
-                      deleteButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                      btnEliminar.setOnAction(new EventHandler<ActionEvent>() {
                           @Override
-                          public void handle(MouseEvent mouseEvent) {
-                              Corte corte=tblCorte.getSelectionModel().getSelectedItem();
-                              EliminarCorte(corte);
+                          public void handle(ActionEvent actionEvent) {
+                             Corte corte=getTableView().getItems().get(getIndex());
+                             EliminarCorte(corte);
                           }
                       });
-                      HBox containButton = new HBox(deleteButon, editButon);
-                      containButton.setStyle("-fx-alignment:center");
-                      HBox.setMargin(deleteButon, new Insets(2, 10, 2, 2));
-                      HBox.setMargin(editButon, new Insets(2, 2, 2, 10));
+
+                      HBox containButton = new HBox(btnEliminar, btnEditar);
+                      containButton.setStyle(setBotonIcon.HboxStyle());
+                      HBox.setMargin(btnEliminar, new Insets(2, 10, 2, 2));
+                      HBox.setMargin(btnEditar, new Insets(2, 2, 2, 10));
                       setGraphic(containButton);
                   }
                   setText(null);
@@ -131,8 +131,11 @@ initTablaTela();
         };
        cellOpciones.setCellFactory(cellFactory);
         tblCorte.setEditable(true);
+        //tblCorte.setTableMenuButtonVisible(true);
         tblCorte.getColumns().addAll(cellCodigo,cellEstilo,cellFecha,cellCantidad,cellRollos,cellEstado,cellOpciones);
-        Platform.runLater(()-> sizeColumnTable.ajustarColumna(tblCorte));
+        //tblCorte.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+       Platform.runLater(()-> sizeColumnTable.ajustarColumna(tblCorte));
+
 
         cellEstado.setCellFactory(new Callback<TableColumn<Corte, String>, TableCell<Corte, String>>() {
             @Override
@@ -143,9 +146,9 @@ initTablaTela();
                         super.updateItem(item,empty);
                         if (!empty){
                             if (item.equals("Activo")) {
-                                setStyle(estiloBoton.Activo1());
+                                setStyle(setBotonIcon.Activo());
                             }else{
-                                setStyle(estiloBoton.NoActivo1());
+                                setStyle(setBotonIcon.NoActivo());
                             }
                             setText(item);
                             }else{
@@ -159,10 +162,11 @@ initTablaTela();
             @Override
             public void handle(MouseEvent event) {
                 if (event.getButton()==MouseButton.PRIMARY && event.getClickCount()==1){
-
                     Corte corte=tblCorte.getSelectionModel().getSelectedItem();
-                    initListaTela(corte);
-                    tblTela.refresh();
+                    if (corte!=null) {
+                        initListaTela(corte);
+                        tblTela.refresh();
+                    }
                 }
             }
         });
@@ -188,22 +192,21 @@ initTablaTela();
                         setGraphic(null);
                     } else {
 
-                        ImageView deleteButon = new ImageView(estiloBoton.deleteImg());
-                        deleteButon.setFitHeight(estiloBoton.sizeButton());
-                        deleteButon.setFitWidth(estiloBoton.sizeButton());
-                        deleteButon.setStyle(estiloBoton.Boton());
-
-
-                        deleteButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        Button btnEliminar=new Button();
+                        btnEliminar.setGraphic(setBotonIcon.ImgDelete());
+                        btnEliminar.setStyle(setBotonIcon.ButtonStyle());
+                        btnEliminar.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
-                            public void handle(MouseEvent mouseEvent) {
-                                Rollos rollos=tblTela.getSelectionModel().getSelectedItem();
-                                EliminarTela(rollos);
+                            public void handle(ActionEvent actionEvent) {
+                               Rollos rollos=getTableView().getItems().get(getIndex());
+                               EliminarTela(rollos);
                             }
                         });
-                        HBox containButton = new HBox(deleteButon);
-                        containButton.setStyle("-fx-alignment:center");
-                        HBox.setMargin(deleteButon, new Insets(2, 10, 2, 2));
+
+
+                        HBox containButton = new HBox(btnEliminar);
+                        containButton.setStyle(setBotonIcon.HboxStyle());
+                        HBox.setMargin(btnEliminar, new Insets(2, 10, 2, 2));
                         setGraphic(containButton);
                     }
                     setText(null);

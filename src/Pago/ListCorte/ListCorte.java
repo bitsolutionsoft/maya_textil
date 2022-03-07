@@ -1,14 +1,11 @@
 package Pago.ListCorte;
 
 import ClassAux.AlertDialog;
-import ClassAux.EstiloBoton;
+import ClassAux.SetBotonIcon;
 import ClassAux.SizeColumnTable;
 import Corte.DAO.Corte;
 import Corte.DAO.DataCorte;
 import Corte.FormCorte;
-import Corte.DAO.DataRollos;
-import Corte.DAO.Rollos;
-import Corte.Pdf.imprimir;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,9 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -49,7 +43,7 @@ public class ListCorte implements Initializable {
     public TableColumn<Corte, String> cellEstado;
     public TableColumn<Corte, String> cellOpciones;
 
-    EstiloBoton estiloBoton=new EstiloBoton();
+    SetBotonIcon setBotonIcon=new SetBotonIcon();
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
     AlertDialog alertDialog=new AlertDialog();
 
@@ -98,35 +92,33 @@ public class ListCorte implements Initializable {
                     if (empty) {
                         setGraphic(null);
                     } else {
-                        ImageView editButon = new ImageView(estiloBoton.editImg());
-                        editButon.setFitHeight(estiloBoton.sizeButton());
-                        editButon.setFitWidth(estiloBoton.sizeButton());
-                        editButon.setStyle(estiloBoton.Boton());
 
+                        Button editButton=new Button();
+                        editButton.setGraphic(setBotonIcon.ImgUpdate());
+                        editButton.setStyle(setBotonIcon.ButtonStyle());
+                        Button deleteButton=new Button();
+                        deleteButton.setGraphic(setBotonIcon.ImgDelete());
+                        deleteButton.setStyle(setBotonIcon.ButtonStyle());
 
-                        ImageView deleteButon = new ImageView(estiloBoton.deleteImg());
-                        deleteButon.setFitHeight(estiloBoton.sizeButton());
-                        deleteButon.setFitWidth(estiloBoton.sizeButton());
-                        deleteButon.setStyle(estiloBoton.Boton());
-
-                        editButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        editButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
-                            public void handle(MouseEvent mouseEvent) {
-                                Corte corte = tblCorte.getSelectionModel().getSelectedItem();
+                            public void handle(ActionEvent actionEvent) {
+                                Corte corte=getTableView().getItems().get(getIndex());
                                 EditarCorte(corte);
                             }
                         });
-                        deleteButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
-                            public void handle(MouseEvent mouseEvent) {
-                                Corte corte = tblCorte.getSelectionModel().getSelectedItem();
+                            public void handle(ActionEvent actionEvent) {
+                                Corte corte=getTableView().getItems().get(getIndex());
                                 EliminarCorte(corte);
                             }
                         });
-                        HBox containButton = new HBox(deleteButon, editButon);
-                        containButton.setStyle("-fx-alignment:center");
-                        HBox.setMargin(deleteButon, new Insets(2, 10, 2, 2));
-                        HBox.setMargin(editButon, new Insets(2, 2, 2, 10));
+
+                        HBox containButton = new HBox(deleteButton, editButton);
+                        containButton.setStyle(setBotonIcon.HboxStyle());
+                        HBox.setMargin(deleteButton, new Insets(2, 10, 2, 2));
+                        HBox.setMargin(editButton, new Insets(2, 2, 2, 10));
                         setGraphic(containButton);
                     }
                     setText(null);
@@ -150,9 +142,9 @@ public class ListCorte implements Initializable {
                         super.updateItem(item, empty);
                         if (!empty) {
                             if (item.equals("Activo")) {
-                                setStyle(estiloBoton.Activo1());
+                                setStyle(setBotonIcon.Activo());
                             } else {
-                                setStyle(estiloBoton.NoActivo1());
+                                setStyle(setBotonIcon.NoActivo());
                             }
                             setText(item);
                         } else {

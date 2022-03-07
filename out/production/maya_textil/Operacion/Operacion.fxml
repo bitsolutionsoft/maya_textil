@@ -4,13 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane id="fondo" prefHeight="554.0" prefWidth="600.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Operacion.ControllerOperacion">
+<GridPane id="fondo" prefHeight="554.0" prefWidth="600.0" stylesheets="/css/modulos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Operacion.ControllerOperacion">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="407.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="764.0" minHeight="10.0" prefHeight="453.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="764.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
@@ -24,25 +24,9 @@
 
          </right></BorderPane>
       <Label id="titulo" text="Control de operaciones" GridPane.halignment="CENTER" />
-      <GridPane GridPane.rowIndex="1">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label id="tituloItem" text="Estilo de pantalon:" GridPane.columnIndex="1" />
-            <Label id="subtituloItem" fx:id="lblEstilo" prefHeight="17.0" prefWidth="233.0" GridPane.columnIndex="2" />
-            <Button id="btnSecundario" fx:id="btnSelecionEstilo" mnemonicParsing="false" onAction="#SeleccionarEStilo" text="Seleccionar estilo" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
-         </children>
-      </GridPane>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <children>
+            <Label text="Tipo de Operación:" />
             <RadioButton fx:id="btnDelantera" mnemonicParsing="false" onAction="#AbrirDelantera" text="Delantera" />
             <RadioButton fx:id="btnTrasera" mnemonicParsing="false" onAction="#AbrirTrasera" text="Trasera" />
             <RadioButton fx:id="btnEnsamble" mnemonicParsing="false" onAction="#AbrirEnsamble" text="Ensamble" />
@@ -61,6 +45,13 @@
             <Button id="btnPrimario" fx:id="btnAtras" mnemonicParsing="false" onAction="#Atras" prefHeight="25.0" prefWidth="178.0" text="Atras" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
          </children>
       </GridPane>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <children>
+            <Label id="tituloItem" text="Estilo de pantalon:" />
+            <Label id="subtituloItem" fx:id="lblEstilo" prefHeight="17.0" prefWidth="233.0" text="No se ha seleccionado estilo" />
+            <Button id="btnSecundario" fx:id="btnSelecionEstilo" mnemonicParsing="false" onAction="#SeleccionarEStilo" text="Seleccionar estilo" />
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets left="5.0" right="5.0" />

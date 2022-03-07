@@ -1,9 +1,6 @@
 package Usuario;
 
-import ClassAux.AlertDialog;
-import ClassAux.EstiloBoton;
-import ClassAux.SizeColumnTable;
-import ClassAux.Util;
+import ClassAux.*;
 import Login.encriptar;
 import Permiso.PermisoController;
 import Usuario.DAO.DataUsuario;
@@ -49,7 +46,7 @@ public class UsuarioController  implements Initializable {
     static ObservableList<Usuario> usuario;
     static FilteredList<Usuario> usuariodata;
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
-    EstiloBoton estiloBoton=new EstiloBoton();
+   SetBotonIcon setBotonIcon=new SetBotonIcon();
     AlertDialog alertDialog=new AlertDialog();
 
     @Override
@@ -77,49 +74,43 @@ llenarLista();
                     if (empty){
                         setGraphic(null);
                     }else{
-                        ImageView editButton=new ImageView(estiloBoton.editImg());
-                        editButton.setFitHeight(estiloBoton.sizeButton());
-                        editButton.setFitWidth(estiloBoton.sizeButton());
-                        editButton.setStyle(estiloBoton.Boton());
-
-                        ImageView deleteButton=new ImageView(estiloBoton.deleteImg());
-                        editButton.setFitHeight(estiloBoton.sizeButton());
-                        editButton.setFitWidth(estiloBoton.sizeButton());
-                        editButton.setStyle(estiloBoton.Boton());
-
-                        ImageView usuarioButton=new ImageView(estiloBoton.accessImg());
-                        usuarioButton.setFitHeight(estiloBoton.sizeButton());
-                        usuarioButton.setFitWidth(estiloBoton.sizeButton());
-                        usuarioButton.setStyle(estiloBoton.Boton());
-
-                        deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        Button editButton=new Button();
+                        editButton.setGraphic(setBotonIcon.ImgUpdate());
+                        editButton.setStyle(setBotonIcon.ButtonStyle());
+                        Button deleteButton=new Button();
+                        deleteButton.setGraphic(setBotonIcon.ImgDelete());
+                        deleteButton.setStyle(setBotonIcon.ButtonStyle());
+                        Button userButton=new Button();
+                        userButton.setGraphic(setBotonIcon.ImgPermision());
+                        userButton.setStyle(setBotonIcon.ButtonStyle());
+                        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
-                            public void handle(javafx.scene.input.MouseEvent event) {
-                                Usuario usuario=tblUsuario.getSelectionModel().getSelectedItem();
+                            public void handle(ActionEvent actionEvent) {
+                                Usuario usuario=getTableView().getItems().get(getIndex());
                                 EliminarUsuario(usuario);
                             }
                         });
+                      editButton.setOnAction(new EventHandler<ActionEvent>() {
+                          @Override
+                          public void handle(ActionEvent actionEvent) {
+                              Usuario usuario=getTableView().getItems().get(getIndex());
+                              EditarUsuario(usuario);
+                          }
+                      });
+                      userButton.setOnAction(new EventHandler<ActionEvent>() {
+                          @Override
+                          public void handle(ActionEvent actionEvent) {
+                              Usuario usuario=getTableView().getItems().get(getIndex());
+                              EditarPermiso(usuario);
+                          }
+                      });
 
-                        editButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
-                            @Override
-                            public void handle(javafx.scene.input.MouseEvent event) {
-                                Usuario usuario=tblUsuario.getSelectionModel().getSelectedItem();
-                                EditarUsuario(usuario);
-                            }
-                        });
-                        usuarioButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
-                            @Override
-                            public void handle(javafx.scene.input.MouseEvent event) {
-                                Usuario usuario=tblUsuario.getSelectionModel().getSelectedItem();
-                                EditarPermiso(usuario);
-                            }
-                        });
 
-                        HBox containBoton=new HBox(deleteButton,editButton,usuarioButton);
-                        containBoton.setStyle("-fx-alignment:center");
+                        HBox containBoton=new HBox(deleteButton,editButton,userButton);
+                        containBoton.setStyle(setBotonIcon.HboxStyle());
                         HBox.setMargin(deleteButton,new Insets(2,10,2,2));
                         HBox.setMargin(editButton,new Insets(2,10,2,10));
-                        HBox.setMargin(usuarioButton,new Insets(2,10,2,2));
+                        HBox.setMargin(userButton,new Insets(2,10,2,2));
                         setGraphic(containBoton);
                     }
                     setText(null);
@@ -137,15 +128,7 @@ public  void initList(){
         usuario= FXCollections.observableArrayList(datos.viewUsuario(new Usuario(), "viewall"));
         usuariodata=new FilteredList<>(usuario,s->true);
         tblUsuario.setItems(usuariodata);
-        /*
-        listView.setItems(usuariodata);
-        listView.setCellFactory(new Callback<ListView<Usuario>, ListCell<Usuario>>() {
-            @Override
-            public ListCell<Usuario> call(ListView<Usuario> usuarioListView) {
-                UsuarioCell usuarioCell=new UsuarioCell();
-                return usuarioCell;
-            }
-        });*/
+      
 }
 public void llenarLista(){
         txtBuscar.textProperty().addListener((prop,old,text) ->{

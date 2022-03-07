@@ -1,30 +1,25 @@
 package Pago;
 
-import ClassAux.EstiloBoton;
+import ClassAux.SetBotonIcon;
 import ClassAux.SizeColumnTable;
 import Corte.Pdf.imprimir;
-import Pago.DAO.Adelanto;
 import Pago.DAO.Boletas;
-import Pago.DAO.DataDetallePago;
-import Pago.DAO.DetallePago;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import net.sf.jasperreports.engine.JasperExportManager;
 
 import java.awt.*;
 import java.io.File;
@@ -39,7 +34,7 @@ public class ReImprimir implements Initializable {
     public TableColumn <Boletas,String> cellOpciones;
     public TextField txtBuscar;
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
-    EstiloBoton estiloBoton=new EstiloBoton();
+    SetBotonIcon setBotonIcon=new SetBotonIcon();
 
     static ObservableList<Boletas> listaBoleto;
     static FilteredList<Boletas> filterboleto;
@@ -65,34 +60,31 @@ public class ReImprimir implements Initializable {
                         if (empty){
                             setGraphic(null);
                         }else{
-                            ImageView btnImprimir=new ImageView(estiloBoton.Imprimir());
-                            btnImprimir.setFitWidth(estiloBoton.sizeButton());
-                            btnImprimir.setFitWidth(estiloBoton.sizeButton());
-                            btnImprimir.setStyle(estiloBoton.Boton());
-                            ImageView btnVer=new ImageView(estiloBoton.Open());
-                            btnVer.setFitWidth(estiloBoton.sizeButton());
-                            btnVer.setFitWidth(estiloBoton.sizeButton());
-                            btnVer.setStyle(estiloBoton.Boton());
-                            btnImprimir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                            Button btnImprimir=new Button();
+                            btnImprimir.setGraphic(setBotonIcon.ImgPrint());
+                            btnImprimir.setStyle(setBotonIcon.ButtonStyle());
+                            Button btnVer=new Button();
+                            btnVer.setGraphic(setBotonIcon.ImgOpen());
+                            btnVer.setStyle(setBotonIcon.ButtonStyle());
+                            btnImprimir.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
-                                public void handle(MouseEvent event) {
-                                    if (event.getClickCount()==1 && event.getButton()== MouseButton.PRIMARY){
-                                        Boletas boletas= tblBoletas.getSelectionModel().getSelectedItem();
-                                        Imprimir(boletas);
-                                    }
+                                public void handle(ActionEvent actionEvent) {
+                                    Boletas boletas=getTableView().getItems().get(getIndex());
+                                    Imprimir(boletas);
                                 }
                             });
-                            btnVer.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                            btnVer.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
-                                public void handle(MouseEvent event) {
-                                    if (event.getClickCount()==1 && event.getButton()== MouseButton.PRIMARY){
-                                        Boletas boletas= tblBoletas.getSelectionModel().getSelectedItem();
-                                        VerPdf(boletas);
-                                    }
+                                public void handle(ActionEvent actionEvent) {
+                                    Boletas boletas=getTableView().getItems().get(getIndex());
+                                    VerPdf(boletas);
                                 }
                             });
+
                             HBox containButton= new HBox(btnImprimir,btnVer);
-                            containButton.setStyle("-fx-alignment:center");
+                            containButton.setStyle(setBotonIcon.HboxStyle());
                             HBox.setMargin(btnImprimir, new Insets(5,5,5,5));
                             HBox.setMargin(btnVer, new Insets(5,5,5,5));
                             setGraphic(containButton);

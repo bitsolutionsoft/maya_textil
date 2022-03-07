@@ -1,9 +1,6 @@
 package Empleado;
 
-import ClassAux.AlertDialog;
-import ClassAux.EstiloBoton;
-import ClassAux.SizeColumnTable;
-import ClassAux.Util;
+import ClassAux.*;
 import Empleado.DAO.DataEmpleado;
 import Empleado.DAO.Empleado;
 import Usuario.DAO.DataUsuario;
@@ -17,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -47,7 +45,7 @@ public class ControllerEmpleado implements Initializable {
     public TableColumn<Empleado, String> cellEstado;
     public TableColumn<Empleado, String> cellopciones;
     SizeColumnTable size_tabla=new SizeColumnTable();
-    EstiloBoton estiloBoton=new EstiloBoton();
+   SetBotonIcon setBotonIcon=new SetBotonIcon();
 
     AlertDialog alertDialog=new AlertDialog();
 
@@ -80,51 +78,32 @@ public void initTabla(){
                 if (empty){
                     setGraphic(null);
                 }else{
-                    ImageView editButon=new ImageView(estiloBoton.editImg());
-                    editButon.setFitHeight(estiloBoton.sizeButton());
-                    editButon.setFitWidth(estiloBoton.sizeButton());
-                    editButon.setStyle(estiloBoton.Boton());
-                    //editButon.setStyle("-fx-background-color:red;");
 
-                    ImageView deleteButon=new ImageView(estiloBoton.deleteImg());
-                    deleteButon.setFitHeight(estiloBoton.sizeButton());
-                    deleteButon.setFitWidth(estiloBoton.sizeButton());
-                    deleteButon.setStyle(estiloBoton.Boton());
-                    //deleteButon.setStyle("-fx-background-color:green; width:200px;");
+                    Button editButon=new Button();
+                    editButon.setGraphic(setBotonIcon.ImgUpdate());
+                   editButon.setStyle(setBotonIcon.ButtonStyle());
+                    Button deleteButon=new Button();
+                    deleteButon.setGraphic(setBotonIcon.ImgDelete());
+                   deleteButon.setStyle(setBotonIcon.ButtonStyle());
 
+                   editButon.setOnAction(new EventHandler<ActionEvent>() {
+                       @Override
+                       public void handle(ActionEvent actionEvent) {
+                           Empleado empleado=getTableView().getItems().get(getIndex());
+                           EditarEmpleado(empleado);
+                       }
+                   });
+                   deleteButon.setOnAction(new EventHandler<ActionEvent>() {
+                       @Override
+                       public void handle(ActionEvent actionEvent) {
+                           Empleado empleado=getTableView().getItems().get(getIndex());
+                           EliminarEmpleado(empleado);
+                       }
+                   });
 
-
-
-                   /*  editButon.setOnMouseClicked((MouseEvent event)->{
-                        Empleado empleado=tblEmpleado.getSelectionModel().getSelectedItem();
-                        EditarEmpleado(empleado);
-
-                    });
-                    deleteButon.setOnMouseClicked((MouseEvent event)->{
-                        Empleado empleado=tblEmpleado.getSelectionModel().getSelectedItem();
-                        EliminarEmpleado(empleado);
-                    });
-*/
-
-
-                   editButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent event) {
-                            Empleado empleado=tblEmpleado.getSelectionModel().getSelectedItem();
-                            EditarEmpleado(empleado);
-                        }
-                    });
-                    deleteButon.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent event) {
-                            Empleado empleado=tblEmpleado.getSelectionModel().getSelectedItem();
-                            EliminarEmpleado(empleado);
-                        }
-                    });
                     HBox containButton=new HBox(deleteButon,editButon);
-                    containButton.setStyle("-fx-alignment:center");
-                    HBox.setMargin(deleteButon,new Insets(2,10,2,2));
-                    HBox.setMargin(editButon, new Insets(2,2,2,10));
+                    containButton.setAlignment(Pos.CENTER);
+                    containButton.setSpacing(1);
                     setGraphic(containButton);
                 }
                 setText(null);
@@ -146,12 +125,10 @@ public void initTabla(){
                     super.updateItem(item,empty);
                     if (!empty){
                         if (item.equals("Activo")){
-                            //setStyle("-fx-text-fill:#30CF9D;-fx-font-weight:bold;");
-                            setStyle(estiloBoton.Activo1());
+                            setStyle(setBotonIcon.Activo());
                         }else{
-                            //getStyleClass().add("NoActivo");
-                            //setStyle("-fx-text-fill:#D12E33; -fx-font-weight:bold;");
-                            setStyle(estiloBoton.NoActivo1());
+
+                            setStyle(setBotonIcon.NoActivo());
 
                         }
                         setText(item);

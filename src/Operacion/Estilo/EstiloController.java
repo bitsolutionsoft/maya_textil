@@ -2,7 +2,7 @@ package Operacion.Estilo;
 
 
 import ClassAux.AlertDialog;
-import ClassAux.EstiloBoton;
+import ClassAux.SetBotonIcon;
 import ClassAux.SizeColumnTable;
 import Operacion.Estilo.DAO.Estilo;
 import Operacion.Estilo.DAO.EstiloData;
@@ -22,13 +22,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 
@@ -49,12 +47,11 @@ public class EstiloController  implements Initializable {
     public TableColumn<Estilo,String> cellOpciones;
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
     AlertDialog alertDialog=new AlertDialog();
-    EstiloBoton estiloBoton=new EstiloBoton();
+    SetBotonIcon setBotonIcon=new SetBotonIcon();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//iniciarLista(listViewEstilo);
-//llenarLista();
+
 iniciarTabla();
 llenarTabla();
     }
@@ -78,34 +75,31 @@ llenarTabla();
                     if(empty){
                         setGraphic(null);
                     }else{
-                        ImageView editButton=new ImageView(estiloBoton.editImg());
-                        editButton.setFitHeight(estiloBoton.sizeButton());
-                        editButton.setFitWidth(estiloBoton.sizeButton());
-                        editButton.setStyle(estiloBoton.Boton());
 
-                        ImageView deleteButton=new ImageView(estiloBoton.deleteImg());
-                        editButton.setFitHeight(estiloBoton.sizeButton());
-                        editButton.setFitWidth(estiloBoton.sizeButton());
-                        editButton.setStyle(estiloBoton.Boton());
-
-                        deleteButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                        Button editButton=new Button();
+                        editButton.setGraphic(setBotonIcon.ImgUpdate());
+                        editButton.setStyle(setBotonIcon.ButtonStyle());
+                        Button deleteButton=new Button();
+                        deleteButton.setGraphic(setBotonIcon.ImgDelete());
+                        deleteButton.setStyle(setBotonIcon.ButtonStyle());
+                        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
-                            public void handle(javafx.scene.input.MouseEvent event) {
-                                Estilo estilo=tblEstilo.getSelectionModel().getSelectedItem();
+                            public void handle(ActionEvent actionEvent) {
+                                Estilo estilo=getTableView().getItems().get(getIndex());
                                 EliminarEstilo(estilo);
                             }
                         });
+                        editButton.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                Estilo estilo=getTableView().getItems().get(getIndex());
+                                EditarEstilo(estilo);
+                            }
+                        });
 
-                       editButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
-                           @Override
-                           public void handle(javafx.scene.input.MouseEvent event) {
-                               Estilo estilo=tblEstilo.getSelectionModel().getSelectedItem();
-                               EditarEstilo(estilo);
-                           }
-                       });
 
                         HBox containBoton=new HBox(deleteButton,editButton);
-                        containBoton.setStyle("-fx-alignment:center");
+                        containBoton.setStyle(setBotonIcon.HboxStyle());
                         HBox.setMargin(deleteButton,new Insets(2,10,2,2));
                         HBox.setMargin(editButton,new Insets(2,2,2,10));
                         setGraphic(containBoton);

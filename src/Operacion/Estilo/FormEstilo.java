@@ -22,7 +22,7 @@ public class FormEstilo implements Initializable {
     public CheckBox cboxActivo;
     public CheckBox cboxNoActivo;
     public Button btnIngresar;
-    public Label btnCancelar;
+
     public Label lblTitulo;
     private  String estado="Activo";
     private  String  accion="new";
@@ -54,10 +54,7 @@ public class FormEstilo implements Initializable {
         }
     }
 
-    public void Cancelar(MouseEvent event) {
-        Stage cerrar = (Stage) btnCancelar.getScene().getWindow();
-        cerrar.close();
-    }
+
 
     private Estilo returnEstilo(){
         Estilo estilo=new Estilo();

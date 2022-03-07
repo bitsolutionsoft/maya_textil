@@ -38,19 +38,7 @@ public class ControllerOperacion  implements Initializable {
     AlertDialog alertDialog=new AlertDialog();
     private  Estilo estiloSeleccionado=null;
     private  String anterior="";
-    private final String estiloBoton="Delantera" +
-            "-fx-background-color:#325FD4;" +
-            "-fx-text-fill:#ffffff;" +
-            "-fx-background-radius:8px;" +
-            "-fx-font-size:15px;"
-            ;
-    private final String selectBoton="" +
-            "-fx-background-color:#0EC3DC;" +
-            "-fx-text-fill:#ffffff;" +
-            "-fx-font-size:15px;" +
-            "-fx-background-radius:8px;" +
-            "-fx-margin:10px 0px 10px 0px;"
-            ;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -191,26 +179,6 @@ private void llenarEstilo(Estilo estilo){
             btnDelantera.setSelected(false);
             btnTrasera.setSelected(false);
         }
-    }
-    public  void  cambiarColor(Button bntActual){
-        switch (anterior) {
-            case "Delantera":
-                btnDelantera.setStyle(estiloBoton);
-
-                break;
-            case "Trasera":
-                btnTrasera.setStyle(estiloBoton);
-
-                break;
-            case "Ensamble":
-                btnEnsamble.setStyle(estiloBoton);
-
-                break;
-
-        }
-
-        bntActual.setStyle(selectBoton);
-
     }
 
 }

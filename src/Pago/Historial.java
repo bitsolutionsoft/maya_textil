@@ -42,9 +42,6 @@ import java.util.ResourceBundle;
 public class Historial implements Initializable {
     static ObservableList<DetallePago> listdatellePago;
     static FilteredList<DetallePago> filterDetallePago;
-    //public ListView<Empleado> listEmpleado;
-    //public ListView<DetallePago>listPago;
-    //public ListView<Adelanto>listCancelado;
 
     public Label labelTitulo;
     public TextField txtBuscar;
@@ -95,7 +92,7 @@ pasarRegistro();
                    FXMLLoader loader =new FXMLLoader(getClass().getResource("/Pago/ReImprimir.fxml"));
                    Parent parent=loader.load();
                    Stage stage=new Stage();
-                   stage.setTitle("Reimprimir  comrpobante");
+                   stage.setTitle("Reimprimir  comprobante");
                    stage.getIcons().add(new Image("/Img/icon.png"));
                    stage.setScene(new Scene(parent));
                    stage.show();

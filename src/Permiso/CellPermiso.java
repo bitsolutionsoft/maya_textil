@@ -20,6 +20,7 @@ public class CellPermiso extends ListCell<Permiso> {
            e.printStackTrace();
        }
         rowPermiso=loader.getController();
+
        rowPermiso.cboxAcceso.setOnAction(new EventHandler<ActionEvent>() {
 
            @Override

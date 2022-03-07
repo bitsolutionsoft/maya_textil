@@ -44,7 +44,7 @@
       <VBox alignment="CENTER" prefHeight="149.0" prefWidth="390.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
             <Button id="btnPrimario" fx:id="btnIngresar" mnemonicParsing="false" onAction="#IngresaEstilo" prefHeight="31.0" prefWidth="197.0" text="Ingresar" />
-            <Label fx:id="btnCancelar" onMouseClicked="#Cancelar" text="Salir" />
+
          </children>
       </VBox>
       <Label fx:id="lblTitulo" text="Ingresar nuevo estilo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />

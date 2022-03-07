@@ -1,22 +1,18 @@
 package Pago;
 
 import ClassAux.AlertDialog;
-import ClassAux.EstiloBoton;
+import ClassAux.SetBotonIcon;
 import ClassAux.SizeColumnTable;
 import Corte.DAO.Corte;
-import Empleado.DAO.DataEmpleado;
 import Empleado.DAO.Empleado;
 import Empleado.ControllerEmpleado;
-import Operacion.DAO.Operacion;
 import Operacion.Estilo.DAO.Estilo;
-import Corte.CorteController;
 import Operacion.Estilo.DAO.EstiloData;
 import Pago.DAO.*;
 import Pago.Factura.ConstanciaPago;
 import Pago.Factura.ImprimirVale;
 import Pago.ListCorte.ListCorte;
 import javafx.application.Platform;
-import javafx.beans.binding.Binding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -25,7 +21,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -98,7 +94,7 @@ public class PagoController implements Initializable {
     public RadioButton rEmsamble;
 
 
-    EstiloBoton estiloBoton=new EstiloBoton();
+    SetBotonIcon setBotonIcon=new SetBotonIcon();
     SizeColumnTable sizeColumnTable=new SizeColumnTable();
     AlertDialog alertDialog=new AlertDialog();
     int codigoPago;
@@ -302,12 +298,9 @@ public class PagoController implements Initializable {
                         if (!empty){
 
                             if (item.equals("Cancelado")){
-                                ImageView iconCheck = new ImageView(estiloBoton.Cancelado());
-                                iconCheck.setFitHeight(estiloBoton.sizeButton());
-                                iconCheck.setFitWidth(estiloBoton.sizeButton());
-                                iconCheck.setStyle(estiloBoton.Boton());
+                                ImageView iconCheck=setBotonIcon.ImgCancel();
                                 HBox containBoton = new HBox(iconCheck);
-                                containBoton.setStyle("-fx-alignment:center");
+                                containBoton.setStyle(setBotonIcon.HboxStyle());
                                 HBox.setMargin(iconCheck, new Insets(2, 2, 2, 10));
                                 setGraphic(containBoton);
                             }else{
@@ -329,36 +322,30 @@ public class PagoController implements Initializable {
                 if (empty){
                     setGraphic(null);
                 }else{
-                    ImageView editButton=new ImageView(estiloBoton.editImg());
-                    editButton.setFitHeight(estiloBoton.sizeButton());
-                    editButton.setFitWidth(estiloBoton.sizeButton());
-                    editButton.setStyle(estiloBoton.Boton());
-
-                    ImageView deleteButton=new ImageView(estiloBoton.deleteImg());
-                    editButton.setFitHeight(estiloBoton.sizeButton());
-                    editButton.setFitWidth(estiloBoton.sizeButton());
-                    editButton.setStyle(estiloBoton.Boton());
-
-                    deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    Button editButton=new Button();
+                    editButton.setGraphic(setBotonIcon.ImgUpdate());
+                    editButton.setStyle(setBotonIcon.ButtonStyle());
+                    Button deleteButton=new Button();
+                    deleteButton.setGraphic(setBotonIcon.ImgDelete());
+                    deleteButton.setStyle(setBotonIcon.ButtonStyle());
+                    deleteButton.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
-                        public void handle(javafx.scene.input.MouseEvent event) {
-                            DetallePago detallePago=tblPago.getSelectionModel().getSelectedItem();
+                        public void handle(ActionEvent actionEvent) {
+                            DetallePago detallePago=getTableView().getItems().get(getIndex());
                             EliminarPago(detallePago);
                         }
                     });
-
-                    editButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                    editButton.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
-                        public void handle(javafx.scene.input.MouseEvent event) {
-                            DetallePago detallePago=tblPago.getSelectionModel().getSelectedItem();
+                        public void handle(ActionEvent actionEvent) {
+                            DetallePago detallePago=getTableView().getItems().get(getIndex());
                             EditarPago(detallePago);
                         }
                     });
 
+
                     HBox containBoton=new HBox(deleteButton,editButton);
-                    containBoton.setStyle("-fx-alignment:center");
-                    HBox.setMargin(deleteButton,new Insets(2,10,2,2));
-                    HBox.setMargin(editButton,new Insets(2,2,2,10));
+                    containBoton.setAlignment(Pos.CENTER);
                     setGraphic(containBoton);
                 }
                 setText(null);
@@ -372,7 +359,9 @@ public class PagoController implements Initializable {
 
 
 
-        Platform.runLater(()->sizeColumnTable.ajustarColumna(tblPago));
+      Platform.runLater(()->sizeColumnTable.ajustarColumna(tblPago));
+//Platform.runLater(()->sizeColumnTable.autoresize(tblPago));
+
         tblPago.getColumns().addAll(cellOperacion,cellCantidad,cellPrecio,cellTotal,cellOpciones,cellEstado);
 
 
@@ -433,36 +422,29 @@ public class PagoController implements Initializable {
                         if (empty){
                             setGraphic(null);
                         }else{
-                            ImageView editButton=new ImageView(estiloBoton.editImg());
-                            editButton.setFitHeight(estiloBoton.sizeButton());
-                            editButton.setFitWidth(estiloBoton.sizeButton());
-                            editButton.setStyle(estiloBoton.Boton());
-
-                            ImageView deleteButton=new ImageView(estiloBoton.deleteImg());
-                            editButton.setFitHeight(estiloBoton.sizeButton());
-                            editButton.setFitWidth(estiloBoton.sizeButton());
-                            editButton.setStyle(estiloBoton.Boton());
-
-                            deleteButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                            Button editButton =new Button();
+                            editButton.setGraphic(setBotonIcon.ImgUpdate());
+                            editButton.setStyle(setBotonIcon.ButtonStyle());
+                            Button deleteButton=new Button();
+                            deleteButton.setGraphic(setBotonIcon.ImgDelete());
+                            deleteButton.setStyle(setBotonIcon.ButtonStyle());
+                            deleteButton.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
-                                public void handle(javafx.scene.input.MouseEvent event) {
-                                    Adelanto adelanto=tblAdelanto.getSelectionModel().getSelectedItem();
+                                public void handle(ActionEvent actionEvent) {
+                                    Adelanto adelanto=getTableView().getItems().get(getIndex());
                                     EliminarAdelanto(adelanto);
                                 }
                             });
-
-                            editButton.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+                            editButton.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
-                                public void handle(javafx.scene.input.MouseEvent event) {
-                                    Adelanto adelanto=tblAdelanto.getSelectionModel().getSelectedItem();
+                                public void handle(ActionEvent actionEvent) {
+                                    Adelanto adelanto=getTableView().getItems().get(getIndex());
                                     EditarAdelanto(adelanto);
                                 }
                             });
 
                             HBox containBoton=new HBox(deleteButton,editButton);
-                            containBoton.setStyle("-fx-alignment:center");
-                            HBox.setMargin(deleteButton,new Insets(2,10,2,2));
-                            HBox.setMargin(editButton,new Insets(2,2,2,10));
+                            containBoton.setAlignment(Pos.CENTER);
                             setGraphic(containBoton);
                         }
                     }
@@ -516,12 +498,9 @@ public class PagoController implements Initializable {
                         super.updateItem(item,empty);
                         if (!empty){
                             if (item.equals("Cancelado")) {
-                                ImageView iconCheck = new ImageView(estiloBoton.Cancelado());
-                                iconCheck.setFitHeight(estiloBoton.sizeButton());
-                                iconCheck.setFitWidth(estiloBoton.sizeButton());
-                                iconCheck.setStyle(estiloBoton.Boton());
+                                ImageView iconCheck = setBotonIcon.ImgCancel();
                                 HBox containBoton=new HBox(iconCheck);
-                                containBoton.setStyle("-fx-alignment:center");
+                                containBoton.setStyle(setBotonIcon.HboxStyle());
                                 HBox.setMargin(iconCheck, new Insets(2,2,2,10));
                                 setGraphic(containBoton);
                             }else{
