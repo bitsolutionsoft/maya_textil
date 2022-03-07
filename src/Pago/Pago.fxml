@@ -65,7 +65,7 @@
                     <children>
                         <TableView fx:id="tblPago" prefHeight="233.0" prefWidth="430.0" GridPane.rowIndex="2" />
                   <TextField fx:id="txtBuscar" prefHeight="36.0" prefWidth="590.0" promptText="Buscar..." GridPane.rowIndex="1" />
-                  <Label id="titulo" text="Listado de tareas realizadas" GridPane.rowIndex="0" />
+                  <Label id="titulo" prefHeight="17.0" prefWidth="234.0" text="Listado de tareas realizadas" GridPane.rowIndex="0" />
                         <GridPane prefHeight="32.0" prefWidth="620.0" GridPane.rowIndex="3">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -115,12 +115,12 @@
                                 <Label prefHeight="18.0" prefWidth="172.0" text="Total a Pagar:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <CheckBox id="lblTodo1" fx:id="cbxTodo2" mnemonicParsing="false" text="Todo" />
                                 <Label prefHeight="18.0" prefWidth="187.0" text="Total Descuento:" GridPane.columnIndex="1" />
-                                <Label fx:id="lblDescuento" prefHeight="18.0" prefWidth="36.0" text="0.00" GridPane.columnIndex="2" />
+                                <Label fx:id="lblDescuento" prefHeight="18.0" prefWidth="117.0" text="0.00" GridPane.columnIndex="2" />
                                 <CheckBox fx:id="cbxImprimir" mnemonicParsing="false" text="Imprimir" GridPane.columnIndex="3" />
                             </children>
                         </GridPane>
                         <TableView fx:id="tblAdelanto" prefHeight="445.0" prefWidth="620.0" GridPane.rowIndex="1" />
-                  <Label id="titulo" text="Listado de adelantos" />
+                  <Label id="titulo" prefHeight="17.0" prefWidth="248.0" text="Listado de adelantos" />
                     </children>
                 </GridPane>
             </children>
@@ -138,7 +138,7 @@
                 <HBox prefHeight="50.0" prefWidth="609.0">
                     <children>
                         <Label prefHeight="57.0" prefWidth="192.0" text="Total de pago pendiente:" />
-                        <Label id="tituloItem" fx:id="lblPagos" prefHeight="57.0" prefWidth="256.0" />
+                        <Label id="tituloItem" fx:id="lblPagos" prefHeight="50.0" prefWidth="332.0" />
                     </children>
                <HBox.margin>
                   <Insets left="150.0" />

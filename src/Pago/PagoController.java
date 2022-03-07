@@ -160,7 +160,7 @@ public class PagoController implements Initializable {
 
                     }
                 }
-                tblPago.refresh();
+                tblAdelanto.refresh();
             }
         });
 
@@ -280,7 +280,7 @@ public class PagoController implements Initializable {
         cellOpciones=new TableColumn<>("Opciones");
         cellEstado=new TableColumn<>("");
 
-        cellOperacion.setPrefWidth(220);
+       cellOperacion.setPrefWidth(220);
         cellOperacion.setCellValueFactory(new PropertyValueFactory<DetallePago,String>("nombre"));
         cellCantidad.setCellValueFactory(new PropertyValueFactory<DetallePago,String>("cantidad"));
         cellPrecio.setCellValueFactory(new PropertyValueFactory<DetallePago,String>("precio"));
@@ -359,7 +359,7 @@ public class PagoController implements Initializable {
 
 
 
-      Platform.runLater(()->sizeColumnTable.ajustarColumna(tblPago));
+     Platform.runLater(()->sizeColumnTable.ajustarColumna(tblPago));
 //Platform.runLater(()->sizeColumnTable.autoresize(tblPago));
 
         tblPago.getColumns().addAll(cellOperacion,cellCantidad,cellPrecio,cellTotal,cellOpciones,cellEstado);
@@ -545,6 +545,8 @@ public class PagoController implements Initializable {
         listdatellePago = FXCollections.observableArrayList(datos.viewDetallePagoXEmp(new DetallePago(0, 0, empleado.getCodigo(), 0, 0, 0, 0, 0, "Pendiente"), "viewxemp"));
         filterDetallePago = new FilteredList<DetallePago>(listdatellePago, s -> true);
         tblPago.setItems(filterDetallePago);
+
+
         lblDescuento.setText("0.0");
         lblTotalOperacion.setText("0.0");
         lblTotalPago.setText("0.0");

@@ -20,6 +20,17 @@ public class SizeColumnTable {
         }
     }
 
+    public  void autAjuste(TableView<?> tableView){
+        AtomicLong ancho=new AtomicLong();
+        tableView.getColumns().forEach(col ->{
+            ancho.addAndGet((long) col.getWidth());
+        });
+        double anchoTabla=tableView.getWidth();
+        if (anchoTabla > ancho.get()){
+            TableColumn<?,?> col=tableView.getColumns().get(tableView.getColumns().size()-1);
+            col.setPrefWidth(col.getWidth()+(anchoTabla - ancho.get()));
+        }
+    }
     public  static  void autoresize(TableView<?> tableView){
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.getColumns().stream().forEach((column)->{

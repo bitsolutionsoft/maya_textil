@@ -3,7 +3,14 @@
     <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="maya_textil.jar">
       <element id="module-output" name="maya_textil" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jcommon-1.0.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jfreechart-1.0.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/itext-2.1.7.js4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-collections4-4.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-javaflow.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-digester-2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jasperreports-fonts-6.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-beanutils-1.9.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-16/lib/javafx-swt.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-16/lib/javafx.base.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-16/lib/javafx.controls.jar" path-in-jar="/" />
@@ -12,25 +19,18 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-16/lib/javafx.media.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-16/lib/javafx.swing.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-16/lib/javafx.web.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-beanutils-1.9.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jfreechart-1.0.12.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-javaflow.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/pdfbox-3.0.0-RC1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-collections4-4.3.jar" path-in-jar="/" />
-      <element id="library" level="project" name="commons-collections4-4.3-javadoc" />
-      <element id="library" level="project" name="commons-collections4-4.3-test-sources" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-collections-3.2.1.jar" path-in-jar="/" />
-      <element id="library" level="project" name="commons-collections4-4.3-sources" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-digester-2.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-collections4-4.3-tests.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/itextpdf-5.4.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jasperreports-fonts-6.3.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/fontbox-3.0.0-RC1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/itext-2.1.7.js4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-collections-3.2.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="commons-collections4-4.3-javadoc" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jcommon-1.0.15.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
+      <element id="library" level="project" name="commons-collections4-4.3-sources" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/fontbox-3.0.0-RC1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/jasperreports-6.3.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/commons-logging-1.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/TrayNotification.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/pdfbox-3.0.0-RC1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="commons-collections4-4.3-test-sources" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libreria/itextpdf-5.4.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

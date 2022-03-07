@@ -9,13 +9,6 @@ azul: #3a7bd5,#473AD5
 -fx-background-color:#abfce4;
 }
 
-/*
-#fondo{
--fx-background-image: url("/Img/login.jpg");
--fx-border-width: 15;
-    -fx-background-radius: 0;
-    -fx-background-color: rgba(127,255,212,0.8);
-}*/
 
 .label{
 -fx-text-fill:#515AEA;
@@ -318,7 +311,9 @@ azul: #3a7bd5,#473AD5
    -fx-font-weight: bold;
    -fx-font-size:18px;
 }
-
+.table-view .column{
+-fx-width:auto;
+}
 .table-view .cell{
    -fx-cell-size: 35;
   -fx-alignment: center-left;
@@ -379,6 +374,10 @@ azul: #3a7bd5,#473AD5
 /*css radio button*/
 
 /*estilo de radio buttons*/
+.radio-button{
+-fx-text-fill:#141414;
+-fx-font-size:15px;
+}
 .radio-button .radio{
     /*-fx-background-insets: 0;
     -fx-background-color: #1abc9c;*/
@@ -386,6 +385,7 @@ azul: #3a7bd5,#473AD5
                 -fx-border-color: #1E88E5;
              -fx-border-width: 0.5px;
              -fx-border-radius: 200px;
+
 
 }
 .radio-button: selected .radio{
@@ -401,7 +401,10 @@ azul: #3a7bd5,#473AD5
 }
 
 /*estilo de los chech box*/
-
+.check-box{
+-fx-text-fill:#141414;
+-fx-font-size:15px;
+}
 .check-box .box{
          -fx-background-color: white;
             -fx-border-color: #54dea7;

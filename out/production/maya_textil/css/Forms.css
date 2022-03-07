@@ -87,7 +87,10 @@ estilo de los combobox
 }
 
 /*estilo de los chech box*/
-
+.check-box{
+-fx-text-fill:#141414;
+-fx-font-size:15px;
+}
 .check-box .box{
          -fx-background-color: white;
             -fx-border-color: #54dea7;
@@ -105,9 +108,6 @@ estilo de los combobox
          -fx-background-color: white;
 }
 
-.check-box .label{
--fx-font-size:14px;
-}
 
 /*date picker _____________________________________________*/
 .date-picker:editable > .arrow-button > * {
